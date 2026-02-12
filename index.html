@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wearable Wisdom | Drop 01: The Source Code</title>
+    <title>Wearable Wisdom | Apex Flagship</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Space+Grotesk:wght@300;700&display=swap');
@@ -18,11 +18,12 @@
         h1, h2, h3, .heading { font-family: 'Space Grotesk', sans-serif; }
         
         .product-card {
-            transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+            border: 1px solid transparent;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .image-container {
-            background-color: #f7f7f7;
+            background-color: #fcfcfc;
             aspect-ratio: 1/1;
             overflow: hidden;
             display: flex;
@@ -34,23 +35,28 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 1.2s ease;
+            transition: transform 1.5s ease;
         }
 
         .product-card:hover img {
-            transform: scale(1.05);
+            transform: scale(1.08);
+        }
+
+        .product-card:hover {
+            border-color: #f0f0f0;
+            background: #fafafa;
         }
 
         .option-select {
             appearance: none;
-            background-color: #f9f9f9;
+            background-color: transparent;
             border: 1px solid #eee;
-            padding: 10px 15px;
+            padding: 12px 20px;
             font-size: 10px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            border-radius: 4px;
+            border-radius: 0px;
             width: 100%;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -58,89 +64,109 @@
 
         .option-select:hover { border-color: #000; }
 
-        .btn-buy {
-            background-color: #000000;
-            color: #ffffff;
-            transition: all 0.3s ease;
+        .nav-link {
+            font-size: 10px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: #ccc;
+            transition: color 0.3s ease;
         }
-
-        .btn-buy:hover {
-            background-color: #2563eb;
-        }
+        
+        .nav-link:hover { color: #000; }
+        .nav-link.active { color: #000; border-bottom: 2px solid #000; padding-bottom: 4px; }
     </style>
 </head>
 <body class="bg-white">
 
-    <!-- Minimal Header -->
-    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 px-8 py-6 flex justify-between items-center">
-        <div class="flex items-center gap-8">
-            <h1 class="text-xl font-bold tracking-tighter uppercase italic">Wearable Wisdom</h1>
-            <div class="hidden md:flex gap-6 text-[10px] font-bold uppercase tracking-widest text-gray-400">
-                <a href="#drop" class="hover:text-black transition">The Harvest</a>
-                <a href="#" class="hover:text-black transition">Philosophy</a>
+    <!-- Apex Header -->
+    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-xl px-12 py-10 flex justify-between items-center border-b border-gray-50">
+        <div class="flex items-center gap-12">
+            <h1 class="text-2xl font-black tracking-tighter uppercase italic">Wearable Wisdom</h1>
+            <div class="hidden lg:flex gap-12 items-center">
+                <a href="#drop" class="nav-link active">Drop 01</a>
+                <a href="#" class="nav-link">Growth Kits</a>
+                <a href="#" class="nav-link">Checkride</a>
             </div>
         </div>
-        <div class="flex items-center gap-6">
-            <div class="text-[10px] font-bold uppercase tracking-widest border border-gray-200 px-4 py-1 rounded-full">Bag (0)</div>
+        <div class="flex items-center gap-10">
+            <div class="text-[10px] font-black uppercase tracking-widest border-2 border-black px-6 py-2">Account</div>
+            <div class="text-[10px] font-black uppercase tracking-widest">Bag (0)</div>
         </div>
     </nav>
 
     <!-- Super Clean Hero -->
-    <header class="pt-48 pb-24 px-8 md:px-16 border-b border-gray-100">
-        <div class="max-w-4xl">
-            <div class="text-[10px] font-bold uppercase tracking-[0.4em] text-blue-600 mb-6">Drop 01 // The Source Code</div>
-            <h2 class="text-6xl md:text-8xl font-black tracking-tighter uppercase mb-10 leading-none">Wear the <br>Statement.</h2>
-            <p class="text-xl md:text-2xl text-gray-400 font-light leading-relaxed max-w-2xl mb-12">
-                11 high-magnitude pieces. Premium heavyweight garments. 
-                Select your variant below. 
+    <header class="pt-64 pb-32 px-12 md:px-24 border-b border-gray-50 bg-white">
+        <div class="max-w-5xl">
+            <div class="text-[10px] font-black uppercase tracking-[0.6em] text-gray-300 mb-8">System Ignition // Phase One</div>
+            <h2 class="text-7xl md:text-9xl font-black tracking-tighter uppercase mb-12 leading-[0.9]">Wear the <br><span class="text-blue-600 italic">Magnitude.</span></h2>
+            <p class="text-2xl text-gray-400 font-light leading-relaxed max-w-3xl mb-16">
+                11 icons of ubiquitous wisdom. Re-imagined literally. <br>
+                Premium streetwear engineered for the suave seeker.
             </p>
-            <a href="#drop" class="inline-block bg-black text-white px-12 py-5 text-xs font-bold uppercase tracking-widest hover:bg-blue-600 transition">Explore the Harvest</a>
+            <div class="flex gap-8">
+                <a href="#drop" class="bg-black text-white px-16 py-6 text-xs font-black uppercase tracking-[0.3em] hover:bg-blue-600 transition shadow-2xl">Secure the Harvest</a>
+                <a href="#" class="border border-gray-200 px-16 py-6 text-xs font-black uppercase tracking-[0.3em] hover:bg-black hover:text-white transition">The Manifesto</a>
+            </div>
         </div>
     </header>
 
     <!-- Product Grid -->
-    <main id="drop" class="py-24 px-8 md:px-16 max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24" id="product-grid">
+    <main id="drop" class="py-32 px-12 md:px-24 max-w-[1600px] mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-16 gap-y-32" id="product-grid">
             <!-- Products injected here -->
         </div>
     </main>
 
-    <!-- Quality Pillar -->
-    <section class="py-40 px-8 bg-gray-50 border-t border-gray-100 text-center">
-        <div class="max-w-3xl mx-auto">
-            <h3 class="text-4xl font-bold mb-10 tracking-tight">The Heavyweight Standard.</h3>
-            <p class="text-gray-500 text-lg leading-loose mb-16">
-                Printed on <span class="text-black font-bold">6.5oz Heavyweight Cotton</span>. Pre-shrunk, garment-dyed, and built for magnitude.
+    <!-- New Pillar Section -->
+    <section class="py-48 px-12 md:px-24 bg-black text-white text-center">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-5xl md:text-7xl font-black tracking-tighter uppercase mb-12 italic text-blue-600">Mach-2 Growth Kits.</h3>
+            <p class="text-xl text-gray-400 font-light leading-relaxed mb-16">
+                We are expanding the ecosystem. Beyond apparel, we are building the future of local businesses. 
+                Our Mach-2 Kits automate the digital magnitude of any local service.
             </p>
-            <div class="flex flex-wrap justify-center gap-12 text-[10px] font-bold uppercase tracking-[0.3em] text-gray-300">
-                <span>Premium Fiber</span>
-                <span>Reactive Dye</span>
-                <span>Studio Grade</span>
+            <a href="https://buy.stripe.com/4gMaEXdhecHYc7mc3X2400V" target="_blank" class="inline-block border-2 border-blue-600 text-blue-600 px-12 py-5 text-xs font-black uppercase tracking-[0.4em] hover:bg-blue-600 hover:text-white transition">Request Business Audit</a>
+        </div>
+    </section>
+
+    <!-- Quality Section -->
+    <section class="py-48 px-12 md:px-24 bg-white border-t border-gray-100 text-center">
+        <div class="max-w-3xl mx-auto">
+            <h3 class="text-4xl font-bold mb-10 tracking-tight">The 6.5oz Standard.</h3>
+            <p class="text-gray-400 text-lg leading-loose mb-16">
+                Absolute quality as a baseline. Garment-dyed, pre-shrunk, and hand-inspected for the most sophisticated finish in the industry.
+            </p>
+            <div class="flex flex-wrap justify-center gap-16 text-[10px] font-black uppercase tracking-[0.4em] text-gray-200">
+                <span>Heavyweight Cotton</span>
+                <span>Reactive Dying</span>
+                <span>Luxury Construction</span>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-24 px-8 text-center border-t border-gray-100">
-        <div class="text-[10px] font-bold uppercase tracking-[1em] text-gray-200 mb-8">Magnitude &bull; Direction</div>
-        <p class="text-[10px] text-gray-400 font-medium tracking-widest uppercase">
-            &copy; 2026 Wearable Wisdom / A Ross Chandler Brand
-        </p>
+    <footer class="py-32 px-12 text-center border-t border-gray-50">
+        <div class="text-[10px] font-black uppercase tracking-[2em] text-gray-100 mb-12">Ross Chandler Brand Ecosystem</div>
+        <div class="flex justify-center gap-16 text-[9px] font-black uppercase tracking-widest text-gray-400">
+            <a href="#">Instagram</a>
+            <a href="#">X.com</a>
+            <a href="#">Solana Pay</a>
+        </div>
     </footer>
 
     <script>
         const products = [
-            { id: "WW-01", name: "THE PRECISE HEADSTRIKE", idiom: "Hit the Nail on the Head", type: "Luxury Heavyweight Tee", price: 32, description: "A sophisticated literal interpretation of the classic idiom. Gold-ink strike graphic.", colors: ["Bone White", "Black", "Midnight Navy"], sizes: ["S", "M", "L", "XL", "2XL", "3XL"], link: "https://buy.stripe.com/3cIfZhelidM25IY3xr2400K" },
-            { id: "WW-02", name: "THE MONUMENTAL SLICE", idiom: "Piece of Cake", type: "Luxury Heavyweight Tee", price: 32, description: "A massive golden cake carried like an Olympic weight. Effortless magnitude.", colors: ["Bone White", "Black", "Midnight Navy"], sizes: ["S", "M", "L", "XL", "2XL", "3XL"], link: "https://buy.stripe.com/14AaEX90Y37odbq2tn2400L" },
+            { id: "WW-01", name: "THE PRECISE HEADSTRIKE", idiom: "Hit the Nail on the Head", type: "Luxury Heavyweight Tee", price: 32, description: "Solid gold nail driven into a marble head silhouette. Suave and intelligent.", colors: ["Bone White", "Black", "Midnight Navy"], sizes: ["S", "M", "L", "XL", "2XL", "3XL"], link: "https://buy.stripe.com/3cIfZhelidM25IY3xr2400K" },
+            { id: "WW-02", name: "THE MONUMENTAL SLICE", idiom: "Piece of Cake", type: "Luxury Heavyweight Tee", price: 32, description: "A massive golden cake slice carried like an Olympic weight. study in magnitude.", colors: ["Bone White", "Black", "Midnight Navy"], sizes: ["S", "M", "L", "XL", "2XL", "3XL"], link: "https://buy.stripe.com/14AaEX90Y37odbq2tn2400L" },
             { id: "WW-03", name: "THE COLLECTIVE WING", idiom: "Birds of a Feather", type: "Luxury Heavyweight Tee", price: 32, description: "Interlocking large gold wings. Sophisticated, iconic, and deeply suave.", colors: ["Graphite", "Black", "Bone White"], sizes: ["S", "M", "L", "XL", "2XL", "3XL"], link: "https://buy.stripe.com/4gM5kD0us7nE8Va0lf2400M" },
-            { id: "WW-04", name: "THE CELESTIAL SYNTHESIS", idiom: "Best of Both Worlds", type: "Luxury Heavyweight Tee", price: 32, description: "A literal planetary synthesis. One foot on Earth, one on the lunar colony.", colors: ["Bone White", "Black", "Midnight Navy"], sizes: ["S", "M", "L", "XL", "2XL", "3XL"], link: "https://buy.stripe.com/aFacN5dhe7nEgnCgkd2400N" },
-            { id: "WW-05", name: "THE VAULT BREAKER", idiom: "Think Outside the Box", type: "Premium Industrial Pullover", price: 42, description: "A geometric box shattered from within by a figure of pure light.", colors: ["Graphite Gray", "Black", "Midnight Navy"], sizes: ["S", "M", "L", "XL", "2XL"], link: "https://buy.stripe.com/3cI3cva520Zg7R63xr2400O" },
-            { id: "WW-06", name: "THE IRON BITE", idiom: "Bite the Bullet", type: "Premium Industrial Pullover", price: 42, description: "A suave masculine figure physically biting a giant gold-plated bullet.", colors: ["Black", "Graphite Gray", "Midnight Navy"], sizes: ["S", "M", "L", "XL", "2XL"], link: "https://buy.stripe.com/3cI28r2CAfUa9Ze1pj2400P" },
-            { id: "WW-07", name: "THE HIDDEN ADVANTAGE", idiom: "Ace up the Sleeve", type: "Premium Industrial Pullover", price: 42, description: "Two solid gold Ace cards sliding out from the cuff seam. Sophisticated detail.", colors: ["Midnight Navy", "Black", "Graphite Gray"], sizes: ["S", "M", "L", "XL", "2XL"], link: "https://buy.stripe.com/6oU28r6SQ37o6N2gkd2400Q" },
-            { id: "WW-08", name: "THE TONAL TRUTH", idiom: "Elephant in the Room", type: "Luxury Studio Hoodie", price: 48, description: "Black-on-black textured elephant silhouette in a luxury penthouse setting.", colors: ["Black", "Midnight Navy", "Graphite Gray"], sizes: ["S", "M", "L", "XL", "2XL", "3XL"], link: "https://buy.stripe.com/00w5kDeli9vM8Va0lf2400R" },
-            { id: "WW-09", name: "THE EQUILIBRIUM", idiom: "Level the Playing Field", type: "Luxury Studio Hoodie", price: 48, description: "A massive level tool used to flatten a mountain range into a field.", colors: ["Midnight Navy", "Black", "Graphite Gray"], sizes: ["S", "M", "L", "XL", "2XL", "3XL"], link: "https://buy.stripe.com/eVqeVd3GE0Zgc7m6JD2400S" },
-            { id: "WW-10", "name": "THE CRYSTAL FRACTURE", idiom: "Break the Ice", type: "Richardson Trucker Hat", price: 28, description: "High-end gold pickaxe embroidery shattering a crystal ice cube.", colors: ["Black/White", "Solid Black", "Navy/White"], sizes: ["Adjustable Snapback"], link: "https://buy.stripe.com/bJe8wPb96dM24EU2tn2400T" },
-            { id: "WW-11", "name": "THE INFINITE CATCH", idiom: "Catch 22", type: "Vintage Sourced Cap", price: 28, description: "Vintage Cap. Embroidered figure juggling 22 glowing numbers. Clever logic.", colors: ["Vintage Bone", "Black", "Sage"], sizes: ["Adjustable Strap"], link: "https://buy.stripe.com/5kQ9ATb96azQdbq9VP2400U" }
+            { id: "WW-04", name: "THE CELESTIAL SYNTHESIS", idiom: "Best of Both Worlds", type: "Luxury Heavyweight Tee", price: 32, description: "A literal planetary synthesis. High-fidelity iconic artwork for the modern seeker.", colors: ["Bone White", "Black", "Midnight Navy"], sizes: ["S", "M", "L", "XL", "2XL", "3XL"], link: "https://buy.stripe.com/aFacN5dhe7nEgnCgkd2400N" },
+            { id: "WW-05", name: "THE LIGHT BREAKER", idiom: "Think Outside the Box", type: "Premium Industrial Pullover", price: 42, description: "A geometric glass box being shattered from within by a figure of pure light.", colors: ["Graphite Gray", "Black", "Midnight Navy"], sizes: ["S", "M", "L", "XL", "2XL"], link: "https://buy.stripe.com/3cI3cva520Zg7R63xr2400O" },
+            { id: "WW-06", name: "THE IRON BITE", idiom: "Bite the Bullet", type: "Premium Industrial Pullover", price: 42, description: "Suave masculine figure physically biting down on a giant gold-plated bullet.", colors: ["Black", "Graphite Gray", "Midnight Navy"], sizes: ["S", "M", "L", "XL", "2XL"], link: "https://buy.stripe.com/3cI28r2CAfUa9Ze1pj2400P" },
+            { id: "WW-07", name: "THE HIDDEN ADVANTAGE", idiom: "Ace up the Sleeve", type: "Premium Industrial Pullover", price: 42, description: "Two solid gold Ace cards sliding out from the cuff seam. Unique and sophisticated.", colors: ["Midnight Navy", "Black", "Graphite Gray"], sizes: ["S", "M", "L", "XL", "2XL"], link: "https://buy.stripe.com/6oU28r6SQ37o6N2gkd2400Q" },
+            { id: "WW-08", name: "THE TONAL TRUTH", idiom: "Elephant in the Room", type: "Luxury Studio Hoodie", price: 48, description: "A tonal black-on-black textured elephant silhouette in a luxury penthouse setting.", colors: ["Black", "Midnight Navy", "Graphite Gray"], sizes: ["S", "M", "L", "XL", "2XL", "3XL"], link: "https://buy.stripe.com/00w5kDeli9vM8Va0lf2400R" },
+            { id: "WW-09", name: "THE EQUILIBRIUM", idiom: "Level the Playing Field", type: "Luxury Studio Hoodie", price: 48, description: "A massive level tool used to flatten a mountain range. Architectural suave intelligence.", colors: ["Midnight Navy", "Black", "Graphite Gray"], sizes: ["S", "M", "L", "XL", "2XL", "3XL"], link: "https://buy.stripe.com/eVqeVd3GE0Zgc7m6JD2400S" },
+            { id: "WW-10", "name": "THE CRYSTAL FRACTURE", idiom: "Break the Ice", type: "Sourced Richardson Trucker", price: 28, description: "High-end gold pickaxe embroidery shattering a crystal ice cube. Sharp focus luxury.", colors: ["Black/White", "Solid Black", "Navy/White"], sizes: ["Adjustable Snapback"], link: "https://buy.stripe.com/bJe8wPb96dM24EU2tn2400T" },
+            { id: "WW-11", "name": "THE INFINITE CATCH", idiom: "Catch 22", type: "Vintage Sourced Cap", price: 28, description: "Embroidered figure juggling 22 glowing numbers. Hip, suave, and intelligent.", colors: ["Vintage Bone", "Black", "Sage"], sizes: ["Adjustable Strap"], link: "https://buy.stripe.com/5kQ9ATb96azQdbq9VP2400U" }
         ];
 
         function loadProducts() {
@@ -148,27 +174,27 @@
             products.forEach((p, i) => {
                 const imgIdx = (i + 1).toString().padStart(2, '0');
                 const card = document.createElement('div');
-                card.className = 'product-card flex flex-col';
+                card.className = 'product-card p-10 flex flex-col';
                 card.innerHTML = `
-                    <div class="image-container mb-8">
+                    <div class="image-container mb-12 rounded-sm shadow-sm">
                         <img src="v17_mockup_${imgIdx}.png" alt="${p.name}">
                     </div>
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-xl font-bold uppercase tracking-tighter">${p.name}</h3>
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold uppercase tracking-tight">${p.name}</h3>
                         <span class="text-sm font-bold text-gray-400">$${p.price}</span>
                     </div>
-                    <div class="text-[9px] font-bold uppercase tracking-widest text-blue-600 mb-2">${p.type}</div>
-                    <div class="text-[10px] font-medium text-gray-300 uppercase tracking-widest mb-4">Inspired by: ${p.idiom}</div>
+                    <div class="text-[9px] font-black uppercase tracking-widest text-blue-600 mb-2">${p.type}</div>
+                    <div class="text-[10px] font-medium text-gray-300 uppercase tracking-widest mb-8">Inspired by: ${p.idiom}</div>
                     
-                    <div class="grid grid-cols-2 gap-2 mb-6">
+                    <div class="grid grid-cols-2 gap-4 mb-10">
                         <select class="option-select"><option selected disabled>Color</option>${p.colors.map(c => `<option>${c}</option>`).join('')}</select>
                         <select class="option-select"><option selected disabled>Size</option>${p.sizes.map(s => `<option>${s}</option>`).join('')}</select>
                     </div>
 
-                    <p class="text-sm text-gray-500 font-light leading-relaxed mb-8 italic line-clamp-2">
+                    <p class="text-sm text-gray-500 font-light leading-relaxed mb-12 italic line-clamp-2">
                         "${p.description}"
                     </p>
-                    <a href="${p.link}" target="_blank" class="block w-full bg-black text-white py-5 text-center text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-blue-600 transition">
+                    <a href="${p.link}" target="_blank" class="block w-full bg-black text-white py-6 text-center text-[10px] font-black uppercase tracking-[0.4em] hover:bg-blue-600 transition shadow-xl">
                         Secure Piece
                     </a>
                 `;
