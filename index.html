@@ -75,6 +75,9 @@
         
         .nav-link:hover { color: #000; }
         .nav-link.active { color: #000; border-bottom: 2px solid #000; padding-bottom: 4px; }
+
+        .service-card { border: 1px solid rgba(255,255,255,0.1); transition: all 0.4s ease; }
+        .service-card:hover { border-color: #2563eb; background: rgba(37, 99, 235, 0.02); }
     </style>
 </head>
 <body class="bg-white">
@@ -84,13 +87,13 @@
         <div class="flex items-center gap-12">
             <h1 class="text-2xl font-black tracking-tighter uppercase italic">Wearable Wisdom</h1>
             <div class="hidden lg:flex gap-12 items-center">
-                <a href="#drop" class="nav-link active">Drop 01</a>
-                <a href="#" class="nav-link">Growth Kits</a>
-                <a href="#" class="nav-link">Checkride</a>
+                <a href="#drop" class="nav-link active">Apparel</a>
+                <a href="#growth" class="nav-link">Growth Kits</a>
+                <a href="#" class="nav-link">Philosophy</a>
             </div>
         </div>
         <div class="flex items-center gap-10">
-            <div class="text-[10px] font-black uppercase tracking-widest border-2 border-black px-6 py-2">Account</div>
+            <div class="text-[10px] font-black uppercase tracking-widest border-2 border-black px-6 py-2">Client Portal</div>
             <div class="text-[10px] font-black uppercase tracking-widest">Bag (0)</div>
         </div>
     </nav>
@@ -98,49 +101,79 @@
     <!-- Super Clean Hero -->
     <header class="pt-64 pb-32 px-12 md:px-24 border-b border-gray-50 bg-white">
         <div class="max-w-5xl">
-            <div class="text-[10px] font-black uppercase tracking-[0.6em] text-gray-300 mb-8">System Ignition // Phase One</div>
-            <h2 class="text-7xl md:text-9xl font-black tracking-tighter uppercase mb-12 leading-[0.9]">Wear the <br><span class="text-blue-600 italic">Magnitude.</span></h2>
+            <div class="text-[10px] font-black uppercase tracking-[0.6em] text-gray-300 mb-8">Ecosystem Engine // Phase One</div>
+            <h2 class="text-7xl md:text-9xl font-black tracking-tighter uppercase mb-12 leading-[0.9]">Growth & <br><span class="text-blue-600 italic">Magnitude.</span></h2>
             <p class="text-2xl text-gray-400 font-light leading-relaxed max-w-3xl mb-16">
-                11 icons of ubiquitous wisdom. Re-imagined literally. <br>
-                Premium streetwear engineered for the suave seeker.
+                Apparel for the suave. Growth for the ambitious. <br>
+                11 iconic pieces and the world's most aggressive local business kits.
             </p>
             <div class="flex gap-8">
-                <a href="#drop" class="bg-black text-white px-16 py-6 text-xs font-black uppercase tracking-[0.3em] hover:bg-blue-600 transition shadow-2xl">Secure the Harvest</a>
-                <a href="#" class="border border-gray-200 px-16 py-6 text-xs font-black uppercase tracking-[0.3em] hover:bg-black hover:text-white transition">The Manifesto</a>
+                <a href="#drop" class="bg-black text-white px-16 py-6 text-xs font-black uppercase tracking-[0.3em] hover:bg-blue-600 transition shadow-2xl">Secure Apparel</a>
+                <a href="#growth" class="border border-gray-200 px-16 py-6 text-xs font-black uppercase tracking-[0.3em] hover:bg-black hover:text-white transition">Ignite Growth Kit</a>
             </div>
         </div>
     </header>
 
-    <!-- Product Grid -->
-    <main id="drop" class="py-32 px-12 md:px-24 max-w-[1600px] mx-auto">
+    <!-- Apparel Grid -->
+    <section id="drop" class="py-32 px-12 md:px-24 max-w-[1600px] mx-auto border-b border-gray-50">
+        <div class="mb-24 flex justify-between items-end">
+            <div>
+                <h3 class="text-[10px] font-black uppercase tracking-[0.4em] text-gray-300 mb-4">The Collection</h3>
+                <h4 class="text-4xl font-black uppercase tracking-tighter italic">Source Code Drop</h4>
+            </div>
+            <div class="text-[10px] font-black uppercase tracking-widest text-gray-200">11 Items Live</div>
+        </div>
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-16 gap-y-32" id="product-grid">
             <!-- Products injected here -->
         </div>
-    </main>
+    </section>
 
-    <!-- New Pillar Section -->
-    <section class="py-48 px-12 md:px-24 bg-black text-white text-center">
-        <div class="max-w-4xl mx-auto">
-            <h3 class="text-5xl md:text-7xl font-black tracking-tighter uppercase mb-12 italic text-blue-600">Mach-2 Growth Kits.</h3>
-            <p class="text-xl text-gray-400 font-light leading-relaxed mb-16">
-                We are expanding the ecosystem. Beyond apparel, we are building the future of local businesses. 
-                Our Mach-2 Kits automate the digital magnitude of any local service.
-            </p>
-            <a href="https://buy.stripe.com/4gMaEXdhecHYc7mc3X2400V" target="_blank" class="inline-block border-2 border-blue-600 text-blue-600 px-12 py-5 text-xs font-black uppercase tracking-[0.4em] hover:bg-blue-600 hover:text-white transition">Request Business Audit</a>
+    <!-- Growth Kit Section (Enhanced with new Skills) -->
+    <section id="growth" class="py-48 px-12 md:px-24 bg-black text-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+                <div>
+                    <h3 class="text-[10px] font-black uppercase tracking-[0.6em] text-blue-600 mb-8">High-Ticket B2B Engine</h3>
+                    <h4 class="text-6xl md:text-8xl font-black tracking-tighter uppercase mb-12 leading-[0.9]">Mach-2 <br><span class="italic text-gray-600">Growth Kits.</span></h4>
+                    <p class="text-xl text-gray-400 font-light leading-relaxed mb-16">
+                        We leverage <span class="text-white font-bold">Performance Reporting</span> and <span class="text-white font-bold">GEO (Generative Engine Optimization)</span> to transform local businesses. $497 setup to automate your digital magnitude.
+                    </p>
+                    <div class="space-y-8">
+                        <div class="flex gap-6 border-l-2 border-blue-600 pl-8">
+                            <span class="text-xs font-black uppercase tracking-widest text-blue-600">Audit</span>
+                            <p class="text-sm text-gray-400">Deep SERP analysis and competitive AI visibility gap reporting.</p>
+                        </div>
+                        <div class="flex gap-6 border-l-2 border-blue-600 pl-8">
+                            <span class="text-xs font-black uppercase tracking-widest text-blue-600">Action</span>
+                            <p class="text-sm text-gray-400">Google Business Profile optimization and AI Review Automation.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card p-12 rounded-3xl bg-[#0a0a0a]">
+                    <h5 class="text-2xl font-black uppercase italic mb-8">Request Audit</h5>
+                    <p class="text-sm text-gray-500 mb-10 leading-relaxed italic">"Magnitude is found in the center of the problem. We find it for you."</p>
+                    <div class="space-y-6 mb-12">
+                        <input type="text" placeholder="BUSINESS NAME" class="w-full bg-white/5 border border-white/10 p-5 text-[10px] font-bold uppercase tracking-widest">
+                        <input type="email" placeholder="EMAIL ADDRESS" class="w-full bg-white/5 border border-white/10 p-5 text-[10px] font-bold uppercase tracking-widest">
+                    </div>
+                    <a href="https://buy.stripe.com/4gMaEXdhecHYc7mc3X2400V" class="block w-full bg-blue-600 text-white py-6 text-center text-[10px] font-black uppercase tracking-[0.4em] hover:bg-white hover:text-black transition">Ignite Mach-2 Kit // $497</a>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Quality Section -->
-    <section class="py-48 px-12 md:px-24 bg-white border-t border-gray-100 text-center">
+    <section class="py-48 px-12 md:px-24 bg-white text-center">
         <div class="max-w-3xl mx-auto">
-            <h3 class="text-4xl font-bold mb-10 tracking-tight">The 6.5oz Standard.</h3>
+            <h3 class="text-4xl font-bold mb-10 tracking-tight">The Heavyweight Standard.</h3>
             <p class="text-gray-400 text-lg leading-loose mb-16">
-                Absolute quality as a baseline. Garment-dyed, pre-shrunk, and hand-inspected for the most sophisticated finish in the industry.
+                Premium 6.5oz Cotton. Garment-dyed. Hand-inspected. <br>
+                Engineered for those who choose the schematic over the noise.
             </p>
             <div class="flex flex-wrap justify-center gap-16 text-[10px] font-black uppercase tracking-[0.4em] text-gray-200">
-                <span>Heavyweight Cotton</span>
-                <span>Reactive Dying</span>
-                <span>Luxury Construction</span>
+                <span>Studio Grade</span>
+                <span>Reactive Dyeing</span>
+                <span>Luxury Build</span>
             </div>
         </div>
     </section>
@@ -165,7 +198,7 @@
             { id: "WW-07", name: "THE HIDDEN ADVANTAGE", idiom: "Ace up the Sleeve", type: "Premium Industrial Pullover", price: 42, description: "Two solid gold Ace cards sliding out from the cuff seam. Unique and sophisticated.", colors: ["Midnight Navy", "Black", "Graphite Gray"], sizes: ["S", "M", "L", "XL", "2XL"], link: "https://buy.stripe.com/6oU28r6SQ37o6N2gkd2400Q" },
             { id: "WW-08", name: "THE TONAL TRUTH", idiom: "Elephant in the Room", type: "Luxury Studio Hoodie", price: 48, description: "A tonal black-on-black textured elephant silhouette in a luxury penthouse setting.", colors: ["Black", "Midnight Navy", "Graphite Gray"], sizes: ["S", "M", "L", "XL", "2XL", "3XL"], link: "https://buy.stripe.com/00w5kDeli9vM8Va0lf2400R" },
             { id: "WW-09", name: "THE EQUILIBRIUM", idiom: "Level the Playing Field", type: "Luxury Studio Hoodie", price: 48, description: "A massive level tool used to flatten a mountain range. Architectural suave intelligence.", colors: ["Midnight Navy", "Black", "Graphite Gray"], sizes: ["S", "M", "L", "XL", "2XL", "3XL"], link: "https://buy.stripe.com/eVqeVd3GE0Zgc7m6JD2400S" },
-            { id: "WW-10", "name": "THE CRYSTAL FRACTURE", idiom: "Break the Ice", type: "Sourced Richardson Trucker", price: 28, description: "High-end gold pickaxe embroidery shattering a crystal ice cube. Sharp focus luxury.", colors: ["Black/White", "Solid Black", "Navy/White"], sizes: ["Adjustable Snapback"], link: "https://buy.stripe.com/bJe8wPb96dM24EU2tn2400T" },
+            { id: "WW-10", name: "THE CRYSTAL FRACTURE", idiom: "Break the Ice", type: "Sourced Richardson Trucker", price: 28, description: "High-end gold pickaxe embroidery shattering a crystal ice cube. Sharp focus luxury.", colors: ["Black/White", "Solid Black", "Navy/White"], sizes: ["Adjustable Snapback"], link: "https://buy.stripe.com/bJe8wPb96dM24EU2tn2400T" },
             { id: "WW-11", "name": "THE INFINITE CATCH", idiom: "Catch 22", type: "Vintage Sourced Cap", price: 28, description: "Embroidered figure juggling 22 glowing numbers. Hip, suave, and intelligent.", colors: ["Vintage Bone", "Black", "Sage"], sizes: ["Adjustable Strap"], link: "https://buy.stripe.com/5kQ9ATb96azQdbq9VP2400U" }
         ];
 
