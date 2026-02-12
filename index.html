@@ -20,10 +20,6 @@
         .product-card {
             transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
         }
-        
-        .product-card:hover {
-            opacity: 0.8;
-        }
 
         .image-container {
             background-color: #f7f7f7;
@@ -44,6 +40,23 @@
         .product-card:hover img {
             transform: scale(1.05);
         }
+
+        .option-select {
+            appearance: none;
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            padding: 10px 15px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-radius: 4px;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option-select:hover { border-color: #000; }
 
         .btn-buy {
             background-color: #000000;
@@ -79,7 +92,7 @@
             <h2 class="text-6xl md:text-8xl font-black tracking-tighter uppercase mb-10 leading-none">Wear the <br>Statement.</h2>
             <p class="text-xl md:text-2xl text-gray-400 font-light leading-relaxed max-w-2xl mb-12">
                 11 high-magnitude pieces. Premium heavyweight garments. 
-                Clever literal artwork for the modern seeker. 
+                Select your variant below. 
             </p>
             <a href="#drop" class="inline-block bg-black text-white px-12 py-5 text-xs font-bold uppercase tracking-widest hover:bg-blue-600 transition">Explore the Harvest</a>
         </div>
@@ -97,9 +110,7 @@
         <div class="max-w-3xl mx-auto">
             <h3 class="text-4xl font-bold mb-10 tracking-tight">The Heavyweight Standard.</h3>
             <p class="text-gray-500 text-lg leading-loose mb-16">
-                We believe suavity requires a superior foundation. Every piece in the Source Code drop is printed on 
-                <span class="text-black font-bold">6.5oz Heavyweight Cotton</span>. Pre-shrunk, garment-dyed, and built 
-                to last as long as the insights they carry.
+                Printed on <span class="text-black font-bold">6.5oz Heavyweight Cotton</span>. Pre-shrunk, garment-dyed, and built for magnitude.
             </p>
             <div class="flex flex-wrap justify-center gap-12 text-[10px] font-bold uppercase tracking-[0.3em] text-gray-300">
                 <span>Premium Fiber</span>
@@ -119,17 +130,17 @@
 
     <script>
         const products = [
-            { id: "WW-01", name: "THE PRECISE HEADSTRIKE", idiom: "Hit the Nail on the Head", type: "Luxury Heavyweight Tee", price: 32, description: "Premium 6.5oz Bone White cotton featuring an ultra-luxury literal interpretation of the classic idiom. Gold-ink head-strike graphic.", link: "https://buy.stripe.com/3cIfZhelidM25IY3xr2400K" },
-            { id: "WW-02", name: "THE MONUMENTAL SLICE", idiom: "Piece of Cake", type: "Luxury Heavyweight Tee", price: 32, description: "Premium 6.5oz Midnight Navy cotton. A massive golden cake carried like an Olympic weight. A study in effortless magnitude.", link: "https://buy.stripe.com/14AaEX90Y37odbq2tn2400L" },
-            { id: "WW-03", name: "THE COLLECTIVE WING", idiom: "Birds of a Feather", type: "Luxury Heavyweight Tee", price: 32, description: "Premium 6.5oz Graphite cotton. Interlocking large gold wings. Sophisticated, iconic, and deeply suave.", link: "https://buy.stripe.com/4gM5kD0us7nE8Va0lf2400M" },
-            { id: "WW-04", name: "THE CELESTIAL SYNTHESIS", idiom: "Best of Both Worlds", type: "Luxury Heavyweight Tee", price: 32, description: "Premium 6.5oz Bone White cotton. A literal planetary synthesis. High-fidelity iconic artwork.", link: "https://buy.stripe.com/aFacN5dhe7nEgnCgkd2400N" },
-            { id: "WW-05", name: "THE LIGHT BREAKER", idiom: "Think Outside the Box", type: "Premium Industrial Pullover", price: 42, description: "Heavyweight French Terry gray pullover. A geometric glass box being shattered from within by a figure of pure light.", link: "https://buy.stripe.com/3cI3cva520Zg7R63xr2400O" },
-            { id: "WW-06", name: "THE IRON BITE", idiom: "Bite the Bullet", type: "Premium Industrial Pullover", price: 42, description: "Heavyweight French Terry black pullover. A close-up literal portrayal of a model physically biting a solid gold bullet.", link: "https://buy.stripe.com/3cI28r2CAfUa9Ze1pj2400P" },
-            { id: "WW-07", name: "THE HIDDEN ADVANTAGE", idiom: "Ace up the Sleeve", type: "Premium Industrial Pullover", price: 42, description: "Heavyweight French Terry navy pullover. Two solid gold Ace cards sliding out from the cuff seam. Unique, sophisticated.", link: "https://buy.stripe.com/6oU28r6SQ37o6N2gkd2400Q" },
-            { id: "WW-08", name: "THE TONAL TRUTH", idiom: "Elephant in the Room", type: "Luxury Studio Hoodie", price: 48, description: "Max Heavyweight black cotton. A tonal black-on-black textured elephant silhouette in a luxury penthouse setting.", link: "https://buy.stripe.com/00w5kDeli9vM8Va0lf2400R" },
-            { id: "WW-09", name: "THE EQUILIBRIUM", idiom: "Level the Playing Field", type: "Luxury Studio Hoodie", price: 48, description: "Max Heavyweight navy cotton. A massive level tool used to flatten a mountain range. Architectural suave intelligence.", link: "https://buy.stripe.com/eVqeVd3GE0Zgc7m6JD2400S" },
-            { id: "WW-10", "name": "THE CRYSTAL FRACTURE", idiom: "Break the Ice", type: "Sourced Richardson Trucker", price: 28, description: "Richardson 112 Trucker in Black. High-end gold pickaxe embroidery shattering a crystal ice cube.", link: "https://buy.stripe.com/bJe8wPb96dM24EU2tn2400T" },
-            { id: "WW-11", "name": "THE INFINITE CATCH", idiom: "Catch 22", type: "Vintage Sourced Cap", price: 28, description: "Vintage White Cap. Embroidered figure juggling 22 glowing numbers. Hip, suave, and intelligent.", link: "https://buy.stripe.com/5kQ9ATb96azQdbq9VP2400U" }
+            { id: "WW-01", name: "THE PRECISE HEADSTRIKE", idiom: "Hit the Nail on the Head", type: "Luxury Heavyweight Tee", price: 32, description: "A sophisticated literal interpretation of the classic idiom. Gold-ink strike graphic.", colors: ["Bone White", "Black", "Midnight Navy"], sizes: ["S", "M", "L", "XL", "2XL", "3XL"], link: "https://buy.stripe.com/3cIfZhelidM25IY3xr2400K" },
+            { id: "WW-02", name: "THE MONUMENTAL SLICE", idiom: "Piece of Cake", type: "Luxury Heavyweight Tee", price: 32, description: "A massive golden cake carried like an Olympic weight. Effortless magnitude.", colors: ["Bone White", "Black", "Midnight Navy"], sizes: ["S", "M", "L", "XL", "2XL", "3XL"], link: "https://buy.stripe.com/14AaEX90Y37odbq2tn2400L" },
+            { id: "WW-03", name: "THE COLLECTIVE WING", idiom: "Birds of a Feather", type: "Luxury Heavyweight Tee", price: 32, description: "Interlocking large gold wings. Sophisticated, iconic, and deeply suave.", colors: ["Graphite", "Black", "Bone White"], sizes: ["S", "M", "L", "XL", "2XL", "3XL"], link: "https://buy.stripe.com/4gM5kD0us7nE8Va0lf2400M" },
+            { id: "WW-04", name: "THE CELESTIAL SYNTHESIS", idiom: "Best of Both Worlds", type: "Luxury Heavyweight Tee", price: 32, description: "A literal planetary synthesis. One foot on Earth, one on the lunar colony.", colors: ["Bone White", "Black", "Midnight Navy"], sizes: ["S", "M", "L", "XL", "2XL", "3XL"], link: "https://buy.stripe.com/aFacN5dhe7nEgnCgkd2400N" },
+            { id: "WW-05", name: "THE VAULT BREAKER", idiom: "Think Outside the Box", type: "Premium Industrial Pullover", price: 42, description: "A geometric box shattered from within by a figure of pure light.", colors: ["Graphite Gray", "Black", "Midnight Navy"], sizes: ["S", "M", "L", "XL", "2XL"], link: "https://buy.stripe.com/3cI3cva520Zg7R63xr2400O" },
+            { id: "WW-06", name: "THE IRON BITE", idiom: "Bite the Bullet", type: "Premium Industrial Pullover", price: 42, description: "A suave masculine figure physically biting a giant gold-plated bullet.", colors: ["Black", "Graphite Gray", "Midnight Navy"], sizes: ["S", "M", "L", "XL", "2XL"], link: "https://buy.stripe.com/3cI28r2CAfUa9Ze1pj2400P" },
+            { id: "WW-07", name: "THE HIDDEN ADVANTAGE", idiom: "Ace up the Sleeve", type: "Premium Industrial Pullover", price: 42, description: "Two solid gold Ace cards sliding out from the cuff seam. Sophisticated detail.", colors: ["Midnight Navy", "Black", "Graphite Gray"], sizes: ["S", "M", "L", "XL", "2XL"], link: "https://buy.stripe.com/6oU28r6SQ37o6N2gkd2400Q" },
+            { id: "WW-08", name: "THE TONAL TRUTH", idiom: "Elephant in the Room", type: "Luxury Studio Hoodie", price: 48, description: "Black-on-black textured elephant silhouette in a luxury penthouse setting.", colors: ["Black", "Midnight Navy", "Graphite Gray"], sizes: ["S", "M", "L", "XL", "2XL", "3XL"], link: "https://buy.stripe.com/00w5kDeli9vM8Va0lf2400R" },
+            { id: "WW-09", name: "THE EQUILIBRIUM", idiom: "Level the Playing Field", type: "Luxury Studio Hoodie", price: 48, description: "A massive level tool used to flatten a mountain range into a field.", colors: ["Midnight Navy", "Black", "Graphite Gray"], sizes: ["S", "M", "L", "XL", "2XL", "3XL"], link: "https://buy.stripe.com/eVqeVd3GE0Zgc7m6JD2400S" },
+            { id: "WW-10", "name": "THE CRYSTAL FRACTURE", idiom: "Break the Ice", type: "Richardson Trucker Hat", price: 28, description: "High-end gold pickaxe embroidery shattering a crystal ice cube.", colors: ["Black/White", "Solid Black", "Navy/White"], sizes: ["Adjustable Snapback"], link: "https://buy.stripe.com/bJe8wPb96dM24EU2tn2400T" },
+            { id: "WW-11", "name": "THE INFINITE CATCH", idiom: "Catch 22", type: "Vintage Sourced Cap", price: 28, description: "Vintage Cap. Embroidered figure juggling 22 glowing numbers. Clever logic.", colors: ["Vintage Bone", "Black", "Sage"], sizes: ["Adjustable Strap"], link: "https://buy.stripe.com/5kQ9ATb96azQdbq9VP2400U" }
         ];
 
         function loadProducts() {
@@ -137,25 +148,28 @@
             products.forEach((p, i) => {
                 const imgIdx = (i + 1).toString().padStart(2, '0');
                 const card = document.createElement('div');
-                card.className = 'product-card flex flex-col group';
+                card.className = 'product-card flex flex-col';
                 card.innerHTML = `
-                    <a href="${p.link}" target="_blank" class="block">
-                        <div class="image-container mb-8">
-                            <img src="v17_mockup_${imgIdx}.png" alt="${p.name}">
-                        </div>
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl font-bold uppercase tracking-tighter">${p.name}</h3>
-                            <span class="text-sm font-bold text-gray-400">$${p.price}</span>
-                        </div>
-                        <div class="text-[9px] font-bold uppercase tracking-widest text-blue-600 mb-2">${p.type}</div>
-                        <div class="text-[10px] font-medium text-gray-300 uppercase tracking-widest mb-6">Inspired by: ${p.idiom}</div>
-                        <p class="text-sm text-gray-500 font-light leading-relaxed mb-8 italic line-clamp-2">
-                            "${p.description}"
-                        </p>
-                        <div class="border-t border-gray-100 pt-6 flex justify-between items-center">
-                            <span class="text-[10px] font-bold uppercase tracking-widest group-hover:text-blue-600">Acquire Piece</span>
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-gray-300 group-hover:text-blue-600 transition-colors"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                        </div>
+                    <div class="image-container mb-8">
+                        <img src="v17_mockup_${imgIdx}.png" alt="${p.name}">
+                    </div>
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold uppercase tracking-tighter">${p.name}</h3>
+                        <span class="text-sm font-bold text-gray-400">$${p.price}</span>
+                    </div>
+                    <div class="text-[9px] font-bold uppercase tracking-widest text-blue-600 mb-2">${p.type}</div>
+                    <div class="text-[10px] font-medium text-gray-300 uppercase tracking-widest mb-4">Inspired by: ${p.idiom}</div>
+                    
+                    <div class="grid grid-cols-2 gap-2 mb-6">
+                        <select class="option-select"><option selected disabled>Color</option>${p.colors.map(c => `<option>${c}</option>`).join('')}</select>
+                        <select class="option-select"><option selected disabled>Size</option>${p.sizes.map(s => `<option>${s}</option>`).join('')}</select>
+                    </div>
+
+                    <p class="text-sm text-gray-500 font-light leading-relaxed mb-8 italic line-clamp-2">
+                        "${p.description}"
+                    </p>
+                    <a href="${p.link}" target="_blank" class="block w-full bg-black text-white py-5 text-center text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-blue-600 transition">
+                        Secure Piece
                     </a>
                 `;
                 grid.appendChild(card);
