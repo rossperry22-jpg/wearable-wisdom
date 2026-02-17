@@ -1,64 +1,1023 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VECTOR // COMMAND NEXUS</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>COMMAND CENTER v12</title>
     <style>
-        :root { --bg: #ffffff; --surface: #f8fafc; --border: #e2e8f0; --accent: #10b981; --text: #0f172a; --dim: #64748b; }
-        body { background: var(--bg); color: var(--text); font-family: 'Outfit', sans-serif; margin: 0; padding: 40px; line-height: 1.6; }
-        header { background: #000; color: #fff; padding: 40px; display: flex; justify-content: space-between; align-items: center; border-radius: 8px; margin-bottom: 50px; }
-        .logo { font-size: 20px; font-weight: 900; letter-spacing: 5px; color: var(--accent); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); gap: 30px; }
-        .card { background: var(--surface); border: 1px solid var(--border); padding: 40px; border-radius: 12px; transition: 0.3s; position: relative; display: flex; flex-direction: column; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
-        .card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(16,185,129,0.1); }
-        .tz { position: absolute; top: 20px; right: 20px; font-size: 10px; font-weight: 900; background: var(--accent); color: white; padding: 4px 12px; border-radius: 20px; }
-        .industry { font-size: 10px; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
-        .company { font-size: 28px; font-weight: 900; color: #000; margin-bottom: 20px; line-height: 1.1; }
-        .dm-block { background: white; padding: 20px; border-radius: 8px; border: 1px solid #edf2f7; margin-bottom: 25px; }
-        .dm-name { font-size: 16px; font-weight: 800; color: #000; text-transform: uppercase; }
-        .dm-pos { font-size: 12px; color: var(--accent); font-weight: 700; text-transform: uppercase; }
-        .mission { font-size: 15px; color: #475569; margin-bottom: 30px; border-left: 3px solid var(--accent); padding-left: 20px; }
-        .call-btn { display: block; width: 100%; padding: 20px; background: #000; color: #fff; text-align: center; text-decoration: none; font-weight: 900; border-radius: 6px; letter-spacing: 2px; transition: 0.2s; }
-        .call-btn:hover { background: var(--accent); color: white; }
+        body { font-family: sans-serif; background: #fff; color: #000; padding: 20px; }
+        header { background: #000; color: #10b981; padding: 20px; margin-bottom: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 20px; }
+        .card { border: 2px solid #eee; padding: 20px; background: #f9f9f9; position: relative; }
+        .tz { position: absolute; top: 10px; right: 10px; font-weight: bold; color: #10b981; font-size: 12px; }
+        .co { font-size: 20px; font-weight: 800; margin: 0 0 10px 0; }
+        .dm { color: #10b981; font-weight: bold; margin-bottom: 5px; text-transform: uppercase; }
+        .pos { font-size: 12px; color: #666; margin-bottom: 15px; }
+        .story { font-size: 14px; line-height: 1.6; border-left: 3px solid #10b981; padding-left: 10px; color: #444; }
+        .call { display: block; background: #000; color: #fff; padding: 15px; text-align: center; text-decoration: none; font-weight: bold; margin-top: 20px; }
     </style>
 </head>
 <body>
-    <header><div class="logo">VECTOR // COMMAND NEXUS</div></header>
+    <header><h1>VECTOR COMMAND // STABLE v12</h1></header>
     <div class="grid">
+
         <div class="card">
             <div class="tz">AKST</div>
-            <span class="industry">Service Providers</span>
-            <h2 class="company">Sea Lion Holdings</h2>
-            <div class="dm-block"><p class="dm-name">David Cottrell</p><p class="dm-pos">Chief Information Officer</p></div>
-            <p class="mission">Sea Lion is the digital heartbeat of the Hooper Bay community. Their mission is providing critical logistical and utility services to Native Alaskan shareholders. The 2026 upgrade ensures their infrastructure can handle the harsh coastal data demands without failure.</p>
-            <a href="tel:19077584708" class="call-btn">Initialize Call (1-907-758-4708)</a>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">SERVICE PROVIDERS</p>
+            <h2 class="co">Sea Lion Holdings, Ltd.</h2>
+            <p class="dm">David Cottrell</p>
+            <p class="pos">Chief Operations Officer</p>
+            <p class="story">Focusing on regional connectivity and essential communication infrastructure for remote communities.</p>
+            <a href="tel:1-907-758-4708" class="call">CALL 1-907-758-4708</a>
         </div>
+        
         <div class="card">
             <div class="tz">AKST</div>
-            <span class="industry">Retail</span>
-            <h2 class="company">Tikigaq Corporation</h2>
-            <div class="dm-block"><p class="dm-name">Christina Johnson</p><p class="dm-pos">Business Development Manager</p></div>
-            <p class="mission">A global leader in government contracting, Tikigaq provides essential construction and environmental services. Their mission is shareholders self-sufficiency through operational excellence. Upgrading their server density reduces latency for their remote teams across the contiguous US and Guam.</p>
-            <a href="tel:1-907-365-6299" class="call-btn">Initialize Call (1-907-365-6299)</a>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">RETAIL</p>
+            <h2 class="co">Tikigaq Corporation</h2>
+            <p class="dm">Stephen Thormann</p>
+            <p class="pos">Business Development Manager</p>
+            <p class="story">Providing the logistics backbone for regional self-sufficiency and ensuring access to essential goods.</p>
+            <a href="tel:1-907-365-6299" class="call">CALL 1-907-365-6299</a>
         </div>
+        
+        <div class="card">
+            <div class="tz">AKST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">WHOLESALE TRADE</p>
+            <h2 class="co">BERING STRAIT NATIVE CORPORATION</h2>
+            <p class="dm">Roxane Kerr</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-907-443-5252" class="call">CALL 1-907-443-5252</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">AKST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">CONSTRUCTION</p>
+            <h2 class="co">Guardian Security Systems Inc</h2>
+            <p class="dm">Christina Johnson</p>
+            <p class="pos">Director of Operations</p>
+            <p class="story">Building the future infrastructure of the region with a focus on safety and precision development.</p>
+            <a href="tel:1-907-274-5275" class="call">CALL 1-907-274-5275</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">AKST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">ENGINEERING SERVICES</p>
+            <h2 class="co">Engineered Solutions Group, Inc.</h2>
+            <p class="dm">Dan Locke</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-907-522-1953" class="call">CALL 1-907-522-1953</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">AKST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">CONSTRUCTION</p>
+            <h2 class="co">The Superior Group Inc</h2>
+            <p class="dm">Mitch S.</p>
+            <p class="pos">Director of Operations</p>
+            <p class="story">Building the future infrastructure of the region with a focus on safety and precision development.</p>
+            <a href="tel:#N/A" class="call">CALL #N/A</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">AKST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">TOURISM/TRAVEL/BOARDING SERVICES</p>
+            <h2 class="co">Alyeska Resort Management Company</h2>
+            <p class="dm">Whitney Brown</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-907-754-1111" class="call">CALL 1-907-754-1111</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">AKST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">GOVERNMENT: STATE/LOCAL</p>
+            <h2 class="co">ALASKA STATE GOV</h2>
+            <p class="dm">Z. Daniel Graham</p>
+            <p class="pos">Chief Information Officer</p>
+            <p class="story">Stewarding essential public resources and ensuring the 100% uptime of citizen-facing digital services.</p>
+            <a href="tel:0" class="call">CALL 0</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">AKST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">GOVERNMENT / MULTINATIONAL</p>
+            <h2 class="co">Gobierno Federal de los Estados Unidos Mexicanos</h2>
+            <p class="dm">Bill Smith</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:0" class="call">CALL 0</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">AKST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">DEFENSE/SECURITY/POLICE</p>
+            <h2 class="co">Alaska Dept of Public Safety</h2>
+            <p class="dm">Jason Smedley</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-907-465-4322" class="call">CALL 1-907-465-4322</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">AKST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">GOVERNMENT: JUSTICE</p>
+            <h2 class="co">ALASKA DEPT OF CORRECTIONS</h2>
+            <p class="dm">Brian Werk</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-907-465-4652" class="call">CALL 1-907-465-4652</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">AKST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">GOVERNMENT: STATE/LOCAL</p>
+            <h2 class="co">ALASKA LOCAL GOV</h2>
+            <p class="dm">David Cottrell</p>
+            <p class="pos">Chief Information Officer</p>
+            <p class="story">Stewarding essential public resources and ensuring the 100% uptime of citizen-facing digital services.</p>
+            <a href="tel:0" class="call">CALL 0</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">AKST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">EDUCATION: K-12 /SCHOOL</p>
+            <h2 class="co">ALASKA K-12</h2>
+            <p class="dm">Stephen Thormann</p>
+            <p class="pos">Director of Technology</p>
+            <p class="story">Empowering the next generation with high-performance learning environments and reliable technology.</p>
+            <a href="tel:0" class="call">CALL 0</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">AKST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">EDUCATION:HIGHER ED/UNIVERSITY</p>
+            <h2 class="co">ALASKA HIGHER ED</h2>
+            <p class="dm">Roxane Kerr</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:0" class="call">CALL 0</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">AKST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">GOVERNMENT: SOCIAL SERVICES</p>
+            <h2 class="co">ALASKA DEPT OF COMMERCE COMMUNITY & ECONOMIC</h2>
+            <p class="dm">Christina Johnson</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-907-465-2500" class="call">CALL 1-907-465-2500</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">AKST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">GOVERNMENT: SOCIAL SERVICES</p>
+            <h2 class="co">Fairbanks Native Association</h2>
+            <p class="dm">Dan Locke</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-907-452-1648" class="call">CALL 1-907-452-1648</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">AKST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">GOV. ADMINISTRATION & FINANCE</p>
+            <h2 class="co">ALASKA DEPT OF ADMINISTRATION</h2>
+            <p class="dm">Mitch S.</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-907-465-2200" class="call">CALL 1-907-465-2200</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">AKST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">SERVICE PROVIDERS</p>
+            <h2 class="co">Arctic Slope Telephone Association Cooperative, Inc.</h2>
+            <p class="dm">Whitney Brown</p>
+            <p class="pos">Chief Operations Officer</p>
+            <p class="story">Focusing on regional connectivity and essential communication infrastructure for remote communities.</p>
+            <a href="tel:#N/A" class="call">CALL #N/A</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">AKST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">OIL AND GAS</p>
+            <h2 class="co">ARCTIC INFORMATION TECHNOLOGY, INC</h2>
+            <p class="dm">Z. Daniel Graham</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:" class="call">CALL </a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">AKST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">HEALTHCARE PROVIDERS</p>
+            <h2 class="co">Ashley, Inc.</h2>
+            <p class="dm">Bill Smith</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Committed to the well-being of the population through secure data nodes and telehealth access.</p>
+            <a href="tel:0" class="call">CALL 0</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">AKST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">RESEARCH</p>
+            <h2 class="co">DEEPTREE, INC.</h2>
+            <p class="dm">Jason Smedley</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:2509537800" class="call">CALL 2509537800</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">AKST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">ENTERPRISE</p>
+            <h2 class="co">COPPER VALLEY TELEPHONE COOPERATIVE INCORPORATED</h2>
+            <p class="dm">Brian Werk</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(907) 835-2231" class="call">CALL (907) 835-2231</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">AKST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">ENTERPRISE</p>
+            <h2 class="co">FAIRBANKS PUBLISHING CO INC</h2>
+            <p class="dm">David Cottrell</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(907) 456-6661" class="call">CALL (907) 456-6661</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">AKST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">ENTERPRISE</p>
+            <h2 class="co">HARDING HOLDINGS INC</h2>
+            <p class="dm">Stephen Thormann</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(907) 344-1577" class="call">CALL (907) 344-1577</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">AKST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">ENTERPRISE</p>
+            <h2 class="co">ALASKA DEPT OF NATURAL RESOURCES</h2>
+            <p class="dm">Roxane Kerr</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(907) 269-8431" class="call">CALL (907) 269-8431</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">AKST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">ENTERPRISE</p>
+            <h2 class="co">ALASKA DEPT OF REVENUE</h2>
+            <p class="dm">Christina Johnson</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(907) 465-3749" class="call">CALL (907) 465-3749</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">AKST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">ENTERPRISE</p>
+            <h2 class="co">PEAK OILFIELD SERVICE COMPANY LLC</h2>
+            <p class="dm">Dan Locke</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(907) 263-7000" class="call">CALL (907) 263-7000</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">AKST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">ENTERPRISE</p>
+            <h2 class="co">ATHLETIC CLUB HOLDINGS INC</h2>
+            <p class="dm">Mitch S.</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(907) 789-2181" class="call">CALL (907) 789-2181</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">AKST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">ENTERPRISE</p>
+            <h2 class="co">LABORERS INTERNATIONAL UNION OF NORTH AMERICA</h2>
+            <p class="dm">Whitney Brown</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(907) 586-2860" class="call">CALL (907) 586-2860</a>
+        </div>
+        
         <div class="card">
             <div class="tz">EST</div>
-            <span class="industry">Banking</span>
-            <h2 class="company">Industrial Bank (IBW)</h2>
-            <div class="dm-block"><p class="dm-name">Stephen Thormann</p><p class="dm-pos">Chief Information Officer</p></div>
-            <p class="mission">Industrial Bank has been a pillar of the DC community since 1934, driving local wealth creation and business growth. Their mission is financial empowerment. Modernizing their compute stack is vital to meeting 2026 banking compliance standards while protecting customer assets.</p>
-            <a href="tel:12027222000" class="call-btn">Initialize Call (1-202-722-2000)</a>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">MEDIA & ENTERTAINMENT</p>
+            <h2 class="co">Al Jazeera International (usa), Inc.</h2>
+            <p class="dm">Z. Daniel Graham</p>
+            <p class="pos">VP of Engineering</p>
+            <p class="story">Dedicated to historical transparency and preserving the public record of regional democratic processes.</p>
+            <a href="tel:0" class="call">CALL 0</a>
         </div>
+        
         <div class="card">
             <div class="tz">EST</div>
-            <span class="industry">Media</span>
-            <h2 class="company">C-SPAN (NCSC)</h2>
-            <div class="dm-block"><p class="dm-name">Roxane Kerr</p><p class="dm-pos">VP Engineering</p></div>
-            <p class="mission">C-SPAN is the steward of American democratic transparency. Their massive video archive is a world-class resource for historical preservation. The 2026 election cycle archival load is a high-magnitude event, making 100% compute redundancy a non-negotiable mission priority.</p>
-            <a href="tel:12027373220" class="call-btn">Initialize Call (1-202-722-3220)</a>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">MEDIA & ENTERTAINMENT</p>
+            <h2 class="co">National Cable Satellite Corp</h2>
+            <p class="dm">Bill Smith</p>
+            <p class="pos">VP of Engineering</p>
+            <p class="story">Dedicated to historical transparency and preserving the public record of regional democratic processes.</p>
+            <a href="tel:1-202-737-3220" class="call">CALL 1-202-737-3220</a>
         </div>
-    </div>
-</body>
-</html>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">BANKING</p>
+            <h2 class="co">Euroclear Bank</h2>
+            <p class="dm">Jason Smedley</p>
+            <p class="pos">CIO / Infrastructure Lead</p>
+            <p class="story">A community cornerstone providing financial stability and wealth-building opportunities for local families.</p>
+            <a href="tel:0" class="call">CALL 0</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">BANKING</p>
+            <h2 class="co">Ibw Financial Corporation</h2>
+            <p class="dm">Brian Werk</p>
+            <p class="pos">CIO / Infrastructure Lead</p>
+            <p class="story">A community cornerstone providing financial stability and wealth-building opportunities for local families.</p>
+            <a href="tel:1-202-722-2000" class="call">CALL 1-202-722-2000</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">BANKING</p>
+            <h2 class="co">PA Consulting Group</h2>
+            <p class="dm">David Cottrell</p>
+            <p class="pos">CIO / Infrastructure Lead</p>
+            <p class="story">A community cornerstone providing financial stability and wealth-building opportunities for local families.</p>
+            <a href="tel:" class="call">CALL </a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">INSURANCE</p>
+            <h2 class="co">INTERNATIONAL BROTHERHOOD OF PAINTERS AND ALLIED</h2>
+            <p class="dm">Stephen Thormann</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:" class="call">CALL </a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">LIFE SCIENCES</p>
+            <h2 class="co">The Heritage Foundation</h2>
+            <p class="dm">Roxane Kerr</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-202-546-4400" class="call">CALL 1-202-546-4400</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">LIFE SCIENCES</p>
+            <h2 class="co">INTERNATIONAL FOOD POLICY RESEARCH INSTITUTE</h2>
+            <p class="dm">Christina Johnson</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-202-862-5600" class="call">CALL 1-202-862-5600</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">LEGAL SERVICES</p>
+            <h2 class="co">KELLER AND HECKMAN LLP</h2>
+            <p class="dm">Dan Locke</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:0" class="call">CALL 0</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">BUSINESS SERVICES</p>
+            <h2 class="co">American Bankers Association Inc</h2>
+            <p class="dm">Mitch S.</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-202-663-5000" class="call">CALL 1-202-663-5000</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">BUSINESS SERVICES</p>
+            <h2 class="co">The American College of Obstetricians and Gynecologists</h2>
+            <p class="dm">Whitney Brown</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:0" class="call">CALL 0</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">BUSINESS SERVICES</p>
+            <h2 class="co">Tokyo Electric Power Company, Incorporated</h2>
+            <p class="dm">Z. Daniel Graham</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:0" class="call">CALL 0</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">BUSINESS SERVICES</p>
+            <h2 class="co">CHAMBER OF COMMERCE OF THE UNITED STATES OF AMERICA</h2>
+            <p class="dm">Bill Smith</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-202-659-6000" class="call">CALL 1-202-659-6000</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">LEGAL SERVICES</p>
+            <h2 class="co">WILKINSON WALSH + ESKOVITZ LLP</h2>
+            <p class="dm">Jason Smedley</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-202-847-4000" class="call">CALL 1-202-847-4000</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">LEGAL SERVICES</p>
+            <h2 class="co">Caplin & Drysdale, Chartered</h2>
+            <p class="dm">Brian Werk</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-202-862-5080" class="call">CALL 1-202-862-5080</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">CHARITIES</p>
+            <h2 class="co">United States Conference of Catholic Bishops</h2>
+            <p class="dm">David Cottrell</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-202-541-3000" class="call">CALL 1-202-541-3000</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">BUSINESS SERVICES</p>
+            <h2 class="co">TEMPUS INC</h2>
+            <p class="dm">Stephen Thormann</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:0" class="call">CALL 0</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">BUSINESS SERVICES</p>
+            <h2 class="co">National Postal Mail Handlers Union</h2>
+            <p class="dm">Roxane Kerr</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-202-833-9095" class="call">CALL 1-202-833-9095</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">BUSINESS SERVICES</p>
+            <h2 class="co">American National Standards Institute, Incorporated</h2>
+            <p class="dm">Christina Johnson</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:2126424880" class="call">CALL 2126424880</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">BUSINESS SERVICES</p>
+            <h2 class="co">International Code Council, Inc.</h2>
+            <p class="dm">Dan Locke</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-888-422-7233" class="call">CALL 1-888-422-7233</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">BUSINESS SERVICES</p>
+            <h2 class="co">National Association of Letter Carriers</h2>
+            <p class="dm">Mitch S.</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-202-393-4695" class="call">CALL 1-202-393-4695</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">ENGINEERING SERVICES</p>
+            <h2 class="co">Torti Gallas and Partners, Inc.</h2>
+            <p class="dm">Whitney Brown</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-240-645-1210" class="call">CALL 1-240-645-1210</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">BUSINESS SERVICES</p>
+            <h2 class="co">International Union of Bricklayers & Allied Craftworkers</h2>
+            <p class="dm">Z. Daniel Graham</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:8004640988" class="call">CALL 8004640988</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">BUSINESS SERVICES</p>
+            <h2 class="co">WILDERNESS SOCIETY, THE</h2>
+            <p class="dm">Bill Smith</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-202-833-2300" class="call">CALL 1-202-833-2300</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">REAL ESTATE</p>
+            <h2 class="co">Ctf Development, Inc.</h2>
+            <p class="dm">Jason Smedley</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-202-533-1205" class="call">CALL 1-202-533-1205</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">BUSINESS CONSULTANCY</p>
+            <h2 class="co">Governmentcio LLC</h2>
+            <p class="dm">Brian Werk</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-443-529-0545" class="call">CALL 1-443-529-0545</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">BUSINESS SERVICES</p>
+            <h2 class="co">METROPOLITAN WASHINGTON COUNCIL OF GOVERNMENTS</h2>
+            <p class="dm">David Cottrell</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:0" class="call">CALL 0</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">-</p>
+            <h2 class="co">GREENSTEIN DELORME & LUCHS PC</h2>
+            <p class="dm">Stephen Thormann</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:0" class="call">CALL 0</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">EDUCATION:HIGHER ED/UNIVERSITY</p>
+            <h2 class="co">Howard University</h2>
+            <p class="dm">Roxane Kerr</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-202-806-6100" class="call">CALL 1-202-806-6100</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">EDUCATION: K-12 /SCHOOL</p>
+            <h2 class="co">DISTRICT OF COLUMBIA K-12</h2>
+            <p class="dm">Christina Johnson</p>
+            <p class="pos">Director of Technology</p>
+            <p class="story">Empowering the next generation with high-performance learning environments and reliable technology.</p>
+            <a href="tel:0" class="call">CALL 0</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">COMPUTER SOFTWARE/SERVICES</p>
+            <h2 class="co">CLOUDHQ</h2>
+            <p class="dm">Dan Locke</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:0" class="call">CALL 0</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">BUSINESS SERVICES</p>
+            <h2 class="co">National Education Association</h2>
+            <p class="dm">Mitch S.</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:" class="call">CALL </a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">ENTERPRISE</p>
+            <h2 class="co">CATALIST LLC</h2>
+            <p class="dm">Whitney Brown</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(202) 962-7200" class="call">CALL (202) 962-7200</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">ENTERPRISE</p>
+            <h2 class="co">KRAMON & GRAHAM PA</h2>
+            <p class="dm">Z. Daniel Graham</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(410) 752-6030" class="call">CALL (410) 752-6030</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">ENTERPRISE</p>
+            <h2 class="co">NATIONAL DEFENSE UNIVERSITY</h2>
+            <p class="dm">Bill Smith</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(202) 685-4700" class="call">CALL (202) 685-4700</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">ENTERPRISE</p>
+            <h2 class="co">SAUDIA ARABIA MINISTRY OF INFORMATION</h2>
+            <p class="dm">Jason Smedley</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(202) 944-3890" class="call">CALL (202) 944-3890</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">ENTERPRISE</p>
+            <h2 class="co">UNIVERSITY CORPORATION FOR ADVANCED INTERNET D</h2>
+            <p class="dm">Brian Werk</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(202) 803-8995" class="call">CALL (202) 803-8995</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">ENTERPRISE</p>
+            <h2 class="co">WHITMAN-WALKER CLINIC INC</h2>
+            <p class="dm">David Cottrell</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(202) 543-3370" class="call">CALL (202) 543-3370</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">ENTERPRISE</p>
+            <h2 class="co">BEVERIDGE & DIAMOND PC</h2>
+            <p class="dm">Stephen Thormann</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(202) 789-6000" class="call">CALL (202) 789-6000</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">ENTERPRISE</p>
+            <h2 class="co">ROTHWELL FIGG ERNST & MANBECK PC</h2>
+            <p class="dm">Roxane Kerr</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(202) 783-6040" class="call">CALL (202) 783-6040</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">ENTERPRISE</p>
+            <h2 class="co">WASHINGTON HEADQUARTERS SERVICES</h2>
+            <p class="dm">Christina Johnson</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:-" class="call">CALL -</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">ENTERPRISE</p>
+            <h2 class="co">SCIENCE & TECHNOLOGY DIRECTORATE-S&T</h2>
+            <p class="dm">Dan Locke</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:-" class="call">CALL -</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">ENTERPRISE</p>
+            <h2 class="co">RALLY HEALTH</h2>
+            <p class="dm">Mitch S.</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(202) 469-7728" class="call">CALL (202) 469-7728</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">ENTERPRISE</p>
+            <h2 class="co">HILLWOOD ESTATE MUSEUM & GARDENS</h2>
+            <p class="dm">Whitney Brown</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(202) 243-3968" class="call">CALL (202) 243-3968</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">ENTERPRISE</p>
+            <h2 class="co">AMERICAN ASSOCIATION OF STATE HIGHWAY AND TRANSPORTATION OFFICIALS</h2>
+            <p class="dm">Z. Daniel Graham</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(202) 624-3508" class="call">CALL (202) 624-3508</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">ENTERPRISE</p>
+            <h2 class="co">AMERICAN PSYCHIATRIC ASSOCIATION</h2>
+            <p class="dm">Bill Smith</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(800) 368-5777" class="call">CALL (800) 368-5777</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">ENTERPRISE</p>
+            <h2 class="co">ARD GERMAN RADIO AND TELEVISION NETWORK</h2>
+            <p class="dm">Jason Smedley</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(202) 298-4050" class="call">CALL (202) 298-4050</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">EST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">ENTERPRISE</p>
+            <h2 class="co">WEINER BRODSKY SIDMAN KIDER PC</h2>
+            <p class="dm">Brian Werk</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(202) 628-2000" class="call">CALL (202) 628-2000</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">MST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">HEALTHCARE PROVIDERS</p>
+            <h2 class="co">BOUNDARY COMMUNITY HOSPITAL & NURSING HOME</h2>
+            <p class="dm">David Cottrell</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Committed to the well-being of the population through secure data nodes and telehealth access.</p>
+            <a href="tel:1-208-267-3141" class="call">CALL 1-208-267-3141</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">MST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">HEALTHCARE PROVIDERS</p>
+            <h2 class="co">RIVERS LOST MEDICAL CENTER</h2>
+            <p class="dm">Stephen Thormann</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Committed to the well-being of the population through secure data nodes and telehealth access.</p>
+            <a href="tel:" class="call">CALL </a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">MST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">OIL AND GAS</p>
+            <h2 class="co">Coleman Oil Company, LLC</h2>
+            <p class="dm">Roxane Kerr</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:0" class="call">CALL 0</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">MST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">RETAIL</p>
+            <h2 class="co">Blue Dog Rv, Inc.</h2>
+            <p class="dm">Christina Johnson</p>
+            <p class="pos">Business Development Manager</p>
+            <p class="story">Providing the logistics backbone for regional self-sufficiency and ensuring access to essential goods.</p>
+            <a href="tel:1-208-457-7256" class="call">CALL 1-208-457-7256</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">MST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">RETAIL</p>
+            <h2 class="co">Moscow & Pullman Building Supply, Inc.</h2>
+            <p class="dm">Dan Locke</p>
+            <p class="pos">Business Development Manager</p>
+            <p class="story">Providing the logistics backbone for regional self-sufficiency and ensuring access to essential goods.</p>
+            <a href="tel:1-208-882-4716" class="call">CALL 1-208-882-4716</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">MST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">DISCRETE - MACHINERY</p>
+            <h2 class="co">Spudnik Equipment Company LLC</h2>
+            <p class="dm">Mitch S.</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-208-684-4120" class="call">CALL 1-208-684-4120</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">MST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">DISCRETE - ENERGY & NAT. RES.</p>
+            <h2 class="co">Woodgrain Millwork, Inc.</h2>
+            <p class="dm">Whitney Brown</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-208-452-3801" class="call">CALL 1-208-452-3801</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">MST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">HIGH TECH/ELECTRONICS</p>
+            <h2 class="co">Computerland Technology Group</h2>
+            <p class="dm">Z. Daniel Graham</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:0" class="call">CALL 0</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">MST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">DISCRETE - ENERGY & NAT. RES.</p>
+            <h2 class="co">ADVANCED WELDING & STEEL INC</h2>
+            <p class="dm">Bill Smith</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:0" class="call">CALL 0</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">MST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">TRANSPORTATION&TRANS SERVICES</p>
+            <h2 class="co">NEWCOLD BURLEY LLC</h2>
+            <p class="dm">Jason Smedley</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:0" class="call">CALL 0</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">MST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">UTILITIES</p>
+            <h2 class="co">KOOTENAI ELECTRIC COOPERATIVE INC</h2>
+            <p class="dm">Brian Werk</p>
+            <p class="pos">Infrastructure Manager</p>
+            <p class="story">Ensuring regional energy stability and grid resilience through mission-critical infrastructure management.</p>
+            <a href="tel:1-208-765-1200" class="call">CALL 1-208-765-1200</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">MST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">DISCRETE - RETAIL & CG</p>
+            <h2 class="co">PACIFIC CABINETS INC</h2>
+            <p class="dm">David Cottrell</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:2089625546" class="call">CALL 2089625546</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">MST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">BUSINESS SERVICES</p>
+            <h2 class="co">YOUNG MEN'S CHRISTIAN ASSOCIATION OF BOISE CITY, IDAHO (THE)</h2>
+            <p class="dm">Stephen Thormann</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-208-344-5502" class="call">CALL 1-208-344-5502</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">MST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">EDUCATION: K-12 /SCHOOL</p>
+            <h2 class="co">CASSIA COUNTY JOINT SCHOOL DISTRICT 151</h2>
+            <p class="dm">Roxane Kerr</p>
+            <p class="pos">Director of Technology</p>
+            <p class="story">Empowering the next generation with high-performance learning environments and reliable technology.</p>
+            <a href="tel:1-208-878-6600" class="call">CALL 1-208-878-6600</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">MST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">GOV. ADMINISTRATION & FINANCE</p>
+            <h2 class="co">COUNTY OF KOOTENAI</h2>
+            <p class="dm">Christina Johnson</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-208-446-1005" class="call">CALL 1-208-446-1005</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">MST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">EDUCATION: K-12 /SCHOOL</p>
+            <h2 class="co">Jefferson Joint School District 251</h2>
+            <p class="dm">Dan Locke</p>
+            <p class="pos">Director of Technology</p>
+            <p class="story">Empowering the next generation with high-performance learning environments and reliable technology.</p>
+            <a href="tel:1-208-745-6693" class="call">CALL 1-208-745-6693</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">MST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">GOV. ADMINISTRATION & FINANCE</p>
+            <h2 class="co">COUNTY OF ADA</h2>
+            <p class="dm">Mitch S.</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-208-287-7080" class="call">CALL 1-208-287-7080</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">MST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">GOVERNMENT: STATE/LOCAL</p>
+            <h2 class="co">IDAHO STATE GOV</h2>
+            <p class="dm">Whitney Brown</p>
+            <p class="pos">Chief Information Officer</p>
+            <p class="story">Stewarding essential public resources and ensuring the 100% uptime of citizen-facing digital services.</p>
+            <a href="tel:0" class="call">CALL 0</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">MST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">GOV. ADMINISTRATION & FINANCE</p>
+            <h2 class="co">City of Idaho Falls</h2>
+            <p class="dm">Z. Daniel Graham</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-208-529-1235" class="call">CALL 1-208-529-1235</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">MST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">GOV. ADMINISTRATION & FINANCE</p>
+            <h2 class="co">COUNTY OF BLAINE (ID)</h2>
+            <p class="dm">Bill Smith</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-208-788-5505" class="call">CALL 1-208-788-5505</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">MST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">GOVERNMENT: STATE/LOCAL</p>
+            <h2 class="co">Executive Office of The State of Idaho</h2>
+            <p class="dm">Jason Smedley</p>
+            <p class="pos">Chief Information Officer</p>
+            <p class="story">Stewarding essential public resources and ensuring the 100% uptime of citizen-facing digital services.</p>
+            <a href="tel:1-208-334-2100" class="call">CALL 1-208-334-2100</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">MST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">GOVERNMENT: STATE/LOCAL</p>
+            <h2 class="co">IDAHO LOCAL GOV</h2>
+            <p class="dm">Brian Werk</p>
+            <p class="pos">Chief Information Officer</p>
+            <p class="story">Stewarding essential public resources and ensuring the 100% uptime of citizen-facing digital services.</p>
+            <a href="tel:0" class="call">CALL 0</a>
+        </div>
+        
+        <div class="card">
+            <div class="tz">MST</div>
+            <p style="font-size:10px; color:#10b981; font-weight:bold; margin-bottom:5px;">GOV. SERVICES & TRANSPORTATION</p>
+            <h2 class="co">IDAHO STATE LIQUOR DISPENSARY</h2>
+            <p class="dm">David Cottrell</p>
+            <p class="pos">IT Director</p>
+            <p class="story">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-208-947-9400" class="call">CALL 1-208-947-9400</a>
+        </div>
+        </div></body></html>
