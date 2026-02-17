@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMMAND // HPE SERVER BDR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #030303;
+            --surface: #0a0a0a;
+            --border: #161616;
+            --accent: #00ff41; /* Tactical Green */
+            --text-main: #ffffff;
+            --text-dim: #555;
+            --glow: rgba(0, 255, 65, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: var(--bg); 
+            color: var(--text-main); 
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container { max-width: 1400px; margin: 0 auto; padding: 30px; }
+
+        header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px;
+        }
+
+        .logo { 
+            font-family: 'Space Grotesk', sans-serif; 
+            font-weight: 700; 
+            letter-spacing: 5px; 
+            font-size: 12px; 
+            text-transform: uppercase; 
+            color: var(--accent);
+        }
+
+        .protocol {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 30px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .protocol::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 2px; height: 100%;
+            background: var(--accent);
+        }
+        .protocol h2 { font-size: 9px; color: var(--accent); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 15px; opacity: 0.7; }
+        .protocol p { font-size: 20px; font-weight: 300; line-height: 1.5; color: #ccc; }
+        .protocol b { color: #fff; font-weight: 700; border-bottom: 1px solid var(--accent); }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 20px; }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 25px;
+            transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 30px var(--glow);
+        }
+
+        .badge { 
+            display: inline-block;
+            font-size: 8px; 
+            font-weight: 900; 
+            color: var(--accent); 
+            border: 1px solid var(--accent);
+            padding: 3px 8px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        .company { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 5px; }
+        .dm-name { font-size: 14px; color: var(--accent); font-weight: 700; margin-bottom: 15px; text-transform: uppercase; }
+
+        .data-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border); }
+        .data-label { font-size: 9px; color: var(--text-dim); text-transform: uppercase; font-weight: 700; }
+        .data-value { font-size: 11px; color: #aaa; }
+
+        .intel { margin-top: 20px; background: rgba(255,255,255,0.02); padding: 15px; border-radius: 2px; }
+        .intel h4 { font-size: 8px; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; opacity: 0.6; }
+        .intel p { font-size: 12px; line-height: 1.5; color: #888; }
+
+        .action-btn {
+            display: block;
+            margin-top: 20px;
+            background: var(--accent);
+            color: #000;
+            text-align: center;
+            padding: 15px;
+            font-size: 10px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+        .action-btn:hover { background: #fff; }
+
+        #clock { font-family: 'Space Grotesk', sans-serif; font-size: 12px; color: var(--text-dim); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="logo">COMMAND // HPE SERVER BDR</div>
+        <div id="clock">00:00:00 EST</div>
+    </header>
+
+    <div class="protocol">
+        <h2>BDR COORD PROTOCOL // REFRESH CYCLE</h2>
+        <p>"Hi, I'm <b>Ross Perry</b>. I need to speak with <b>[NAME]</b> regarding your <b>HPE Gen12 refresh</b>. I'm coordinating a sync to verify your compute infrastructure is prioritized for the Q3 modernization window before the projected DRAM cost increases."</p>
+    </div>
+
+    <div class="grid" id="leads-grid">
+        <!-- Lead 1 -->
+        <div class="card">
+            <div class="badge">REFRESH WINDOW</div>
+            <div class="company">Sea Lion Holdings, Ltd.</div>
+            <div class="dm-name">David Cottrell</div>
+            <div class="data-row"><span class="data-label">Region</span><span class="data-value">Hooper Bay, AK</span></div>
+            <div class="data-row"><span class="data-label">Infra</span><span class="data-value">HPE ProLiant IB</span></div>
+            <div class="intel">
+                <h4>Tactical Intel</h4>
+                <p>David manages the investment/ops sync. High DRAM sensitivity. Gen12 offers 3x efficiency jump over their current legacy nodes.</p>
+            </div>
+            <a href="tel:19077584708" class="action-btn">Initialize Call</a>
+        </div>
+
+        <!-- Lead 2 -->
+        <div class="card">
+            <div class="badge">SECURITY SYNC</div>
+            <div class="company">Ibw Financial Corporation</div>
+            <div class="dm-name">Stephen G. Thormann</div>
+            <div class="data-row"><span class="data-label">Region</span><span class="data-value">Washington, DC</span></div>
+            <div class="data-row"><span class="data-label">Infra</span><span class="data-value">Hybrid IB/Cloud</span></div>
+            <div class="intel">
+                <h4>Tactical Intel</h4>
+                <p>CIO/Infrastructure lead. Tightening financial regs for Q3. Gen12 Compute Ops Management automates the compliance loop.</p>
+            </div>
+            <a href="tel:12027222000" class="action-btn">Initialize Call</a>
+        </div>
+
+        <!-- Lead 3 -->
+        <div class="card">
+            <div class="badge">CAPACITY ALERT</div>
+            <div class="company">C-SPAN (NCSC)</div>
+            <div class="dm-name">Roxane G. Kerr</div>
+            <div class="data-row"><span class="data-label">Region</span><span class="data-value">Washington, DC</span></div>
+            <div class="data-row"><span class="data-label">Infra</span><span class="data-value">High-Res Archival</span></div>
+            <div class="intel">
+                <h4>Tactical Intel</h4>
+                <p>VP/Technology lead. Massive election data load expected. Current redundancy is near threshold. Gen12 is the only viable path.</p>
+            </div>
+            <a href="tel:12027373220" class="action-btn">Initialize Call</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function updateClock() {
+        const now = new Date();
+        const options = { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+        document.getElementById('clock').innerText = now.toLocaleTimeString('en-US', options) + ' EST';
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+</script>
+
+</body>
+</html>
