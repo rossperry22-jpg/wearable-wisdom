@@ -3,239 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wearable Wisdom | Apex Flagship</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Vector Dashboard | Ross Chandler</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Space+Grotesk:wght@300;700&display=swap');
+        :root {
+            --bg: #0a0a0a;
+            --card: #141414;
+            --text: #e0e0e0;
+            --accent: #ffcc00;
+            --muted: #888;
+        }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 40px;
+            line-height: 1.6;
+        }
+        header {
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+        h1 { margin: 0; font-size: 24px; letter-spacing: -0.5px; }
+        .tagline { color: var(--accent); font-size: 14px; text-transform: uppercase; font-weight: bold; }
         
-        body { 
-            background-color: #ffffff; 
-            color: #000000; 
-            font-family: 'Inter', sans-serif; 
-            -webkit-font-smoothing: antialiased;
-        }
-        
-        h1, h2, h3, .heading { font-family: 'Space Grotesk', sans-serif; }
-        
-        .product-card {
-            border: 1px solid transparent;
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .image-container {
-            background-color: #fcfcfc;
-            aspect-ratio: 1/1;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 1.5s ease;
-        }
-
-        .product-card:hover img {
-            transform: scale(1.08);
-        }
-
-        .product-card:hover {
-            border-color: #f0f0f0;
-            background: #fafafa;
-        }
-
-        .option-select {
-            appearance: none;
-            background-color: transparent;
-            border: 1px solid #eee;
-            padding: 12px 20px;
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            border-radius: 0px;
-            width: 100%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .option-select:hover { border-color: #000; }
-
-        .nav-link {
-            font-size: 10px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.3em;
-            color: #ccc;
-            transition: color 0.3s ease;
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
         }
         
-        .nav-link:hover { color: #000; }
-        .nav-link.active { color: #000; border-bottom: 2px solid #000; padding-bottom: 4px; }
+        .card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid #222;
+            transition: transform 0.2s;
+        }
+        .card:hover { transform: translateY(-4px); border-color: var(--accent); }
+        
+        .card h2 { margin-top: 0; font-size: 18px; color: var(--accent); }
+        .card p { font-size: 14px; color: var(--muted); }
+        
+        .asset-list { list-style: none; padding: 0; margin-top: 15px; }
+        .asset-list li { margin-bottom: 8px; font-size: 13px; }
+        .asset-list a { 
+            color: var(--text); 
+            text-decoration: none; 
+            display: block; 
+            padding: 4px 8px; 
+            background: #222; 
+            border-radius: 4px;
+        }
+        .asset-list a:hover { background: var(--accent); color: black; }
 
-        .service-card { border: 1px solid rgba(255,255,255,0.1); transition: all 0.4s ease; }
-        .service-card:hover { border-color: #2563eb; background: rgba(37, 99, 235, 0.02); }
+        .footer {
+            margin-top: 60px;
+            font-size: 12px;
+            color: var(--muted);
+            text-align: center;
+        }
     </style>
 </head>
-<body class="bg-white">
-
-    <!-- Apex Header -->
-    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-xl px-12 py-10 flex justify-between items-center border-b border-gray-50">
-        <div class="flex items-center gap-12">
-            <h1 class="text-2xl font-black tracking-tighter uppercase italic">Wearable Wisdom</h1>
-            <div class="hidden lg:flex gap-12 items-center">
-                <a href="#drop" class="nav-link active">Apparel</a>
-                <a href="#growth" class="nav-link">Growth Kits</a>
-                <a href="#" class="nav-link">Philosophy</a>
-            </div>
-        </div>
-        <div class="flex items-center gap-10">
-            <div class="text-[10px] font-black uppercase tracking-widest border-2 border-black px-6 py-2">Client Portal</div>
-            <div class="text-[10px] font-black uppercase tracking-widest">Bag (0)</div>
-        </div>
-    </nav>
-
-    <!-- Super Clean Hero -->
-    <header class="pt-64 pb-32 px-12 md:px-24 border-b border-gray-50 bg-white">
-        <div class="max-w-5xl">
-            <div class="text-[10px] font-black uppercase tracking-[0.6em] text-gray-300 mb-8">Ecosystem Engine // Phase One</div>
-            <h2 class="text-7xl md:text-9xl font-black tracking-tighter uppercase mb-12 leading-[0.9]">Growth & <br><span class="text-blue-600 italic">Magnitude.</span></h2>
-            <p class="text-2xl text-gray-400 font-light leading-relaxed max-w-3xl mb-16">
-                Apparel for the suave. Growth for the ambitious. <br>
-                11 iconic pieces and the world's most aggressive local business kits.
-            </p>
-            <div class="flex gap-8">
-                <a href="#drop" class="bg-black text-white px-16 py-6 text-xs font-black uppercase tracking-[0.3em] hover:bg-blue-600 transition shadow-2xl">Secure Apparel</a>
-                <a href="#growth" class="border border-gray-200 px-16 py-6 text-xs font-black uppercase tracking-[0.3em] hover:bg-black hover:text-white transition">Ignite Growth Kit</a>
-            </div>
-        </div>
+<body>
+    <header>
+        <div class="tagline">Ross Chandler Asset Portfolio</div>
+        <h1>Vector Mastermind Dashboard</h1>
     </header>
 
-    <!-- Apparel Grid -->
-    <section id="drop" class="py-32 px-12 md:px-24 max-w-[1600px] mx-auto border-b border-gray-50">
-        <div class="mb-24 flex justify-between items-end">
-            <div>
-                <h3 class="text-[10px] font-black uppercase tracking-[0.4em] text-gray-300 mb-4">The Collection</h3>
-                <h4 class="text-4xl font-black uppercase tracking-tighter italic">Source Code Drop</h4>
-            </div>
-            <div class="text-[10px] font-black uppercase tracking-widest text-gray-200">11 Items Live</div>
+    <div class="grid">
+        <!-- Checkride -->
+        <div class="card">
+            <h2>Checkride (Monetization)</h2>
+            <p>Bespoke aviation soundscapes and branding.</p>
+            <ul class="asset-list">
+                <li><a href="dialer.html">📞 Open: Vector Dialer v5 (HPE Gen12)</a></li>
+                <li><a href="checkride_demo_v1.mp4">🎥 Watch: Demo Video v1</a></li>
+                <li><a href="checkride_leads.md">📧 Read: Marketing Lead List</a></li>
+                <li><a href="checkride_logo.png">🎨 View: Logo Concept</a></li>
+                <li><a href="ross_chandler_sonic_blueprint.md">📄 Read: Sonic Blueprint</a></li>
+            </ul>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-16 gap-y-32" id="product-grid">
-            <!-- Products injected here -->
+
+        <!-- Wearable Wisdom -->
+        <div class="card">
+            <h2>Wearable Wisdom (Brand)</h2>
+            <p>Minimalist luxury apparel identity.</p>
+            <ul class="asset-list">
+                <li><a href="wearable_wisdom_guidelines.md">📏 Brand Guidelines</a></li>
+                <li><a href="wearable-wisdom-store/manifesto.md">📜 Brand Manifesto</a></li>
+                <li><a href="wearable_wisdom_v01.mp4">🎞️ Promo Clip 01</a></li>
+                <li><a href="suave_mockup_01.png">👕 Sample Mockup (Suave)</a></li>
+            </ul>
         </div>
-    </section>
 
-    <!-- Growth Kit Section (Enhanced with new Skills) -->
-    <section id="growth" class="py-48 px-12 md:px-24 bg-black text-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-                <div>
-                    <h3 class="text-[10px] font-black uppercase tracking-[0.6em] text-blue-600 mb-8">High-Ticket B2B Engine</h3>
-                    <h4 class="text-6xl md:text-8xl font-black tracking-tighter uppercase mb-12 leading-[0.9]">Mach-2 <br><span class="italic text-gray-600">Growth Kits.</span></h4>
-                    <p class="text-xl text-gray-400 font-light leading-relaxed mb-16">
-                        We leverage <span class="text-white font-bold">Performance Reporting</span> and <span class="text-white font-bold">GEO (Generative Engine Optimization)</span> to transform local businesses. $497 setup to automate your digital magnitude.
-                    </p>
-                    <div class="space-y-8">
-                        <div class="flex gap-6 border-l-2 border-blue-600 pl-8">
-                            <span class="text-xs font-black uppercase tracking-widest text-blue-600">Audit</span>
-                            <p class="text-sm text-gray-400">Deep SERP analysis and competitive AI visibility gap reporting.</p>
-                        </div>
-                        <div class="flex gap-6 border-l-2 border-blue-600 pl-8">
-                            <span class="text-xs font-black uppercase tracking-widest text-blue-600">Action</span>
-                            <p class="text-sm text-gray-400">Google Business Profile optimization and AI Review Automation.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="service-card p-12 rounded-3xl bg-[#0a0a0a]">
-                    <h5 class="text-2xl font-black uppercase italic mb-8">Request Audit</h5>
-                    <p class="text-sm text-gray-500 mb-10 leading-relaxed italic">"Magnitude is found in the center of the problem. We find it for you."</p>
-                    <div class="space-y-6 mb-12">
-                        <input type="text" placeholder="BUSINESS NAME" class="w-full bg-white/5 border border-white/10 p-5 text-[10px] font-bold uppercase tracking-widest">
-                        <input type="email" placeholder="EMAIL ADDRESS" class="w-full bg-white/5 border border-white/10 p-5 text-[10px] font-bold uppercase tracking-widest">
-                    </div>
-                    <a href="https://buy.stripe.com/4gMaEXdhecHYc7mc3X2400V" class="block w-full bg-blue-600 text-white py-6 text-center text-[10px] font-black uppercase tracking-[0.4em] hover:bg-white hover:text-black transition">Ignite Mach-2 Kit // $497</a>
-                </div>
-            </div>
+        <!-- Adventure Aviator -->
+        <div class="card">
+            <h2>Adventure Aviator (Pillar 02)</h2>
+            <p>Digital portal for private pilot training.</p>
+            <ul class="asset-list">
+                <li><a href="death-of-textbook.mp4">🎬 Viral Demo: Death of the Textbook</a></li>
+                <li><a href="adventure-aviator-demo.png">🖼️ Instagram Asset: Stall Cockpit</a></li>
+                <li><a href="adventure-aviator/curriculum.md">📚 Full Syllabus</a></li>
+                <li><a href="deploy-aa/stall_physics.mp4">📐 Stall Physics Visualization</a></li>
+            </ul>
         </div>
-    </section>
 
-    <!-- Quality Section -->
-    <section class="py-48 px-12 md:px-24 bg-white text-center">
-        <div class="max-w-3xl mx-auto">
-            <h3 class="text-4xl font-bold mb-10 tracking-tight">The Heavyweight Standard.</h3>
-            <p class="text-gray-400 text-lg leading-loose mb-16">
-                Premium 6.5oz Cotton. Garment-dyed. Hand-inspected. <br>
-                Engineered for those who choose the schematic over the noise.
-            </p>
-            <div class="flex flex-wrap justify-center gap-16 text-[10px] font-black uppercase tracking-[0.4em] text-gray-200">
-                <span>Studio Grade</span>
-                <span>Reactive Dyeing</span>
-                <span>Luxury Build</span>
-            </div>
+        <!-- System & Strategy -->
+        <div class="card">
+            <h2>System & Intelligence</h2>
+            <p>The core of Vector's logic.</p>
+            <ul class="asset-list">
+                <li><a href="MEMORY.md">🧠 Long-Term Memory</a></li>
+                <li><a href="AGENTS.md">📜 Operating Rules</a></li>
+                <li><a href="PORTFOLIO.md">🗄️ Master Asset List</a></li>
+            </ul>
         </div>
-    </section>
+    </div>
 
-    <footer class="py-32 px-12 text-center border-t border-gray-50">
-        <div class="text-[10px] font-black uppercase tracking-[2em] text-gray-100 mb-12">Ross Chandler Brand Ecosystem</div>
-        <div class="flex justify-center gap-16 text-[9px] font-black uppercase tracking-widest text-gray-400">
-            <a href="#">Instagram</a>
-            <a href="#">X.com</a>
-            <a href="#">Solana Pay</a>
-        </div>
-    </footer>
-
-    <script>
-        const products = [
-            { id: "WW-01", name: "THE PRECISE HEADSTRIKE", idiom: "Hit the Nail on the Head", type: "Luxury Heavyweight Tee", price: 32, description: "Solid gold nail driven into a marble head silhouette. Suave and intelligent.", colors: ["Bone White", "Black", "Midnight Navy"], sizes: ["S", "M", "L", "XL", "2XL", "3XL"], link: "https://buy.stripe.com/3cIfZhelidM25IY3xr2400K" },
-            { id: "WW-02", name: "THE MONUMENTAL SLICE", idiom: "Piece of Cake", type: "Luxury Heavyweight Tee", price: 32, description: "A massive golden cake slice carried like an Olympic weight. study in magnitude.", colors: ["Bone White", "Black", "Midnight Navy"], sizes: ["S", "M", "L", "XL", "2XL", "3XL"], link: "https://buy.stripe.com/14AaEX90Y37odbq2tn2400L" },
-            { id: "WW-03", name: "THE COLLECTIVE WING", idiom: "Birds of a Feather", type: "Luxury Heavyweight Tee", price: 32, description: "Interlocking large gold wings. Sophisticated, iconic, and deeply suave.", colors: ["Graphite", "Black", "Bone White"], sizes: ["S", "M", "L", "XL", "2XL", "3XL"], link: "https://buy.stripe.com/4gM5kD0us7nE8Va0lf2400M" },
-            { id: "WW-04", name: "THE CELESTIAL SYNTHESIS", idiom: "Best of Both Worlds", type: "Luxury Heavyweight Tee", price: 32, description: "A literal planetary synthesis. High-fidelity iconic artwork for the modern seeker.", colors: ["Bone White", "Black", "Midnight Navy"], sizes: ["S", "M", "L", "XL", "2XL", "3XL"], link: "https://buy.stripe.com/aFacN5dhe7nEgnCgkd2400N" },
-            { id: "WW-05", name: "THE LIGHT BREAKER", idiom: "Think Outside the Box", type: "Premium Industrial Pullover", price: 42, description: "A geometric glass box being shattered from within by a figure of pure light.", colors: ["Graphite Gray", "Black", "Midnight Navy"], sizes: ["S", "M", "L", "XL", "2XL"], link: "https://buy.stripe.com/3cI3cva520Zg7R63xr2400O" },
-            { id: "WW-06", name: "THE IRON BITE", idiom: "Bite the Bullet", type: "Premium Industrial Pullover", price: 42, description: "Suave masculine figure physically biting down on a giant gold-plated bullet.", colors: ["Black", "Graphite Gray", "Midnight Navy"], sizes: ["S", "M", "L", "XL", "2XL"], link: "https://buy.stripe.com/3cI28r2CAfUa9Ze1pj2400P" },
-            { id: "WW-07", name: "THE HIDDEN ADVANTAGE", idiom: "Ace up the Sleeve", type: "Premium Industrial Pullover", price: 42, description: "Two solid gold Ace cards sliding out from the cuff seam. Unique and sophisticated.", colors: ["Midnight Navy", "Black", "Graphite Gray"], sizes: ["S", "M", "L", "XL", "2XL"], link: "https://buy.stripe.com/6oU28r6SQ37o6N2gkd2400Q" },
-            { id: "WW-08", name: "THE TONAL TRUTH", idiom: "Elephant in the Room", type: "Luxury Studio Hoodie", price: 48, description: "A tonal black-on-black textured elephant silhouette in a luxury penthouse setting.", colors: ["Black", "Midnight Navy", "Graphite Gray"], sizes: ["S", "M", "L", "XL", "2XL", "3XL"], link: "https://buy.stripe.com/00w5kDeli9vM8Va0lf2400R" },
-            { id: "WW-09", name: "THE EQUILIBRIUM", idiom: "Level the Playing Field", type: "Luxury Studio Hoodie", price: 48, description: "A massive level tool used to flatten a mountain range. Architectural suave intelligence.", colors: ["Midnight Navy", "Black", "Graphite Gray"], sizes: ["S", "M", "L", "XL", "2XL", "3XL"], link: "https://buy.stripe.com/eVqeVd3GE0Zgc7m6JD2400S" },
-            { id: "WW-10", name: "THE CRYSTAL FRACTURE", idiom: "Break the Ice", type: "Sourced Richardson Trucker", price: 28, description: "High-end gold pickaxe embroidery shattering a crystal ice cube. Sharp focus luxury.", colors: ["Black/White", "Solid Black", "Navy/White"], sizes: ["Adjustable Snapback"], link: "https://buy.stripe.com/bJe8wPb96dM24EU2tn2400T" },
-            { id: "WW-11", "name": "THE INFINITE CATCH", idiom: "Catch 22", type: "Vintage Sourced Cap", price: 28, description: "Embroidered figure juggling 22 glowing numbers. Hip, suave, and intelligent.", colors: ["Vintage Bone", "Black", "Sage"], sizes: ["Adjustable Strap"], link: "https://buy.stripe.com/5kQ9ATb96azQdbq9VP2400U" }
-        ];
-
-        function loadProducts() {
-            const grid = document.getElementById('product-grid');
-            products.forEach((p, i) => {
-                const imgIdx = (i + 1).toString().padStart(2, '0');
-                const card = document.createElement('div');
-                card.className = 'product-card p-10 flex flex-col';
-                card.innerHTML = `
-                    <div class="image-container mb-12 rounded-sm shadow-sm">
-                        <img src="v17_mockup_${imgIdx}.png" alt="${p.name}">
-                    </div>
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-xl font-bold uppercase tracking-tight">${p.name}</h3>
-                        <span class="text-sm font-bold text-gray-400">$${p.price}</span>
-                    </div>
-                    <div class="text-[9px] font-black uppercase tracking-widest text-blue-600 mb-2">${p.type}</div>
-                    <div class="text-[10px] font-medium text-gray-300 uppercase tracking-widest mb-8">Inspired by: ${p.idiom}</div>
-                    
-                    <div class="grid grid-cols-2 gap-4 mb-10">
-                        <select class="option-select"><option selected disabled>Color</option>${p.colors.map(c => `<option>${c}</option>`).join('')}</select>
-                        <select class="option-select"><option selected disabled>Size</option>${p.sizes.map(s => `<option>${s}</option>`).join('')}</select>
-                    </div>
-
-                    <p class="text-sm text-gray-500 font-light leading-relaxed mb-12 italic line-clamp-2">
-                        "${p.description}"
-                    </p>
-                    <a href="${p.link}" target="_blank" class="block w-full bg-black text-white py-6 text-center text-[10px] font-black uppercase tracking-[0.4em] hover:bg-blue-600 transition shadow-xl">
-                        Secure Piece
-                    </a>
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        loadProducts();
-    </script>
+    <div class="footer">
+        Magnitude and Direction. Updated: 2026-02-17 04:23 UTC.
+    </div>
 </body>
 </html>
