@@ -3,1348 +3,1226 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>VECTOR COMMAND // NEXUS v10.1</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;700;900&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <title>COMMAND CENTER v10.2 // STABLE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #ffffff; --surface: #fdfdfd; --border: #eeeeee; --accent: #10b981; --text: #111111; --dim: #888888; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--bg); color: var(--text); font-family: 'Outfit', sans-serif; -webkit-font-smoothing: antialiased; }
-        header { background: #000000; padding: 30px 60px; display: flex; justify-content: space-between; align-items: center; border-bottom: 5px solid var(--accent); position: sticky; top: 0; z-index: 100; }
-        .logo { font-family: 'Space Grotesk'; font-weight: 700; letter-spacing: 10px; color: #fff; text-transform: uppercase; font-size: 16px; }
-        .logo span { color: var(--accent); }
-        .clock { font-family: 'Space Grotesk'; color: #fff; font-size: 18px; }
-        .container { max-width: 1700px; margin: 60px auto; padding: 0 40px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); gap: 40px; }
-        .card { background: var(--surface); border: 1px solid var(--border); padding: 50px; border-radius: 4px; transition: 0.4s; display: flex; flex-direction: column; position: relative; }
-        .card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 40px 80px rgba(0,0,0,0.08); }
-        .tz-tag { position: absolute; top: 30px; right: 30px; font-size: 10px; font-weight: 900; color: var(--accent); border: 1.5px solid var(--accent); padding: 5px 12px; border-radius: 50px; text-transform: uppercase; }
-        .industry { font-size: 10px; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 15px; display: block; }
-        .company-name { font-size: 32px; font-weight: 800; color: #000; letter-spacing: -1px; margin-bottom: 25px; line-height: 1.1; }
-        .dm-box { background: #f7f7f7; padding: 25px; border-radius: 8px; margin-bottom: 35px; }
-        .dm-label { font-size: 9px; font-weight: 800; color: var(--dim); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
-        .dm-name { font-size: 16px; font-weight: 800; color: #000; text-transform: uppercase; margin-bottom: 4px; }
-        .dm-pos { font-size: 12px; color: var(--accent); font-weight: 600; text-transform: uppercase; }
-        .story { font-size: 16px; line-height: 1.8; color: #444444; margin-bottom: 40px; border-left: 3px solid var(--accent); padding-left: 24px; font-weight: 300; }
-        .call-btn { display: block; width: 100%; padding: 25px; background: #000000; color: #ffffff; text-align: center; text-decoration: none; font-weight: 900; font-size: 13px; letter-spacing: 5px; text-transform: uppercase; transition: 0.3s; margin-top: auto; border-radius: 2px; }
-        .call-btn:hover { background: var(--accent); color: #000; }
+        :root { --bg: #ffffff; --accent: #10b981; --border: #eeeeee; }
+        body { background: var(--bg); color: #111; font-family: 'Outfit', sans-serif; margin: 0; padding: 40px; }
+        header { background: #000; padding: 30px; border-bottom: 5px solid var(--accent); color: #fff; margin-bottom: 40px; border-radius: 4px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 30px; }
+        .card { border: 1px solid var(--border); padding: 40px; background: #fafafa; border-radius: 4px; display: flex; flex-direction: column; position: relative; }
+        .card:hover { border-color: var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .tz { position: absolute; top: 20px; right: 20px; font-size: 10px; font-weight: 900; color: var(--accent); }
+        .company { font-size: 24px; font-weight: 800; margin-bottom: 10px; }
+        .industry { font-size: 10px; font-weight: 800; color: var(--accent); text-transform: uppercase; margin-bottom: 20px; display: block; }
+        .dm-line { background: #fff; padding: 15px; border-radius: 4px; border: 1px solid #eee; margin-bottom: 20px; }
+        .dm-name { font-size: 14px; font-weight: 800; }
+        .dm-pos { font-size: 11px; color: var(--accent); text-transform: uppercase; font-weight: 600; }
+        .mission { font-size: 14px; line-height: 1.6; color: #555; margin-bottom: 30px; border-left: 2px solid var(--accent); padding-left: 15px; }
+        .call-btn { background: #000; color: #fff; padding: 20px; text-align: center; text-decoration: none; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; font-size: 11px; margin-top: auto; }
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">VECTOR // <span>COMMAND COMMAND v10.1</span></div>
-        <div id="clock" class="clock">00:00:00 EST</div>
-    </header>
-    <div class="container"><div class="grid">
+    <header><h1>COMMAND CENTER // 100 LEADS STABLE</h1></header>
+    <div class="grid">
 
         <div class="card">
-            <div class="tz-tag">AKST</div>
+            <div class="tz">AKST</div>
             <span class="industry">Service Providers</span>
-            <h2 class="company-name">Sea Lion Holdings</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
+            <h2 class="company">Sea Lion Holdings</h2>
+            <div class="dm-line">
                 <p class="dm-name">David Cottrell</p>
                 <p class="dm-pos">Chief Operations Officer</p>
             </div>
-            <p class="story">Dedicated to bridging the infrastructure gap in regional hubs. Their mission is community connectivity, ensuring that remote populations have stable access to essential digital resources.</p>
-            <a href="tel:1-907-758-4708" class="call-btn">Initialize Sync</a>
+            <p class="mission">Bridging the infrastructure gap in regional hubs through community connectivity and emergency service stability.</p>
+            <a href="tel:1-907-758-4708" class="call-btn">Initialize Call (1-907-758-4708)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">AKST</div>
+            <div class="tz">AKST</div>
             <span class="industry">Retail</span>
-            <h2 class="company-name">Tikigaq Corporation</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
+            <h2 class="company">Tikigaq Corporation</h2>
+            <div class="dm-line">
                 <p class="dm-name">Stephen Thormann</p>
                 <p class="dm-pos">Business Development Manager</p>
             </div>
-            <p class="story">Provides the lifeblood of regional supply chain logistics. They are dedicated to community self-sufficiency, managing the movement of goods to where they are needed most.</p>
-            <a href="tel:1-907-365-6299" class="call-btn">Initialize Sync</a>
+            <p class="mission">Providing the logistical backbone for regional supply chains and community self-sufficiency.</p>
+            <a href="tel:1-907-365-6299" class="call-btn">Initialize Call (1-907-365-6299)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">AKST</div>
+            <div class="tz">AKST</div>
             <span class="industry">Wholesale Trade</span>
-            <h2 class="company-name">BERING STRAIT NATIVE CORPORATION</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
+            <h2 class="company">BERING STRAIT NATIVE CORPORATION</h2>
+            <div class="dm-line">
                 <p class="dm-name">Roxane Kerr</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-907-443-5252" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-907-443-5252" class="call-btn">Initialize Call (1-907-443-5252)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">AKST</div>
+            <div class="tz">AKST</div>
             <span class="industry">Construction</span>
-            <h2 class="company-name">Guardian Security Systems</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
+            <h2 class="company">Guardian Security Systems</h2>
+            <div class="dm-line">
                 <p class="dm-name">Christina Johnson</p>
                 <p class="dm-pos">Director of Operations</p>
             </div>
-            <p class="story">Focused on building mission-critical infrastructure. They prioritize safety and precision scaling to support the growth and resilience of the local population.</p>
-            <a href="tel:1-907-274-5275" class="call-btn">Initialize Sync</a>
+            <p class="mission">Building mission-critical infrastructure to support the growth and resilience of the local population.</p>
+            <a href="tel:1-907-274-5275" class="call-btn">Initialize Call (1-907-274-5275)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">AKST</div>
+            <div class="tz">AKST</div>
             <span class="industry">Engineering services</span>
-            <h2 class="company-name">Engineered Solutions Group,</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
+            <h2 class="company">Engineered Solutions Group,</h2>
+            <div class="dm-line">
                 <p class="dm-name">Dan Locke</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-907-522-1953" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-907-522-1953" class="call-btn">Initialize Call (1-907-522-1953)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">AKST</div>
+            <div class="tz">AKST</div>
             <span class="industry">Construction</span>
-            <h2 class="company-name">The Superior Group</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
+            <h2 class="company">The Superior Group</h2>
+            <div class="dm-line">
                 <p class="dm-name">Mitch S.</p>
                 <p class="dm-pos">Director of Operations</p>
             </div>
-            <p class="story">Focused on building mission-critical infrastructure. They prioritize safety and precision scaling to support the growth and resilience of the local population.</p>
-            <a href="tel:#N/A" class="call-btn">Initialize Sync</a>
+            <p class="mission">Building mission-critical infrastructure to support the growth and resilience of the local population.</p>
+            <a href="tel:#N/A" class="call-btn">Initialize Call (#N/A)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">AKST</div>
+            <div class="tz">AKST</div>
             <span class="industry">Tourism/Travel/Boarding Services</span>
-            <h2 class="company-name">Alyeska Resort Management Company</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
+            <h2 class="company">Alyeska Resort Management Company</h2>
+            <div class="dm-line">
                 <p class="dm-name">Whitney Brown</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-907-754-1111" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-907-754-1111" class="call-btn">Initialize Call (1-907-754-1111)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">AKST</div>
+            <div class="tz">AKST</div>
             <span class="industry">Government: State/Local</span>
-            <h2 class="company-name">ALASKA STATE GOV</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
+            <h2 class="company">ALASKA STATE GOV</h2>
+            <div class="dm-line">
                 <p class="dm-name">Z. Daniel Graham</p>
                 <p class="dm-pos">Chief Information Officer</p>
             </div>
-            <p class="story">The steward of essential public services. Their mission is to maintain 100% uptime for state-wide infrastructure, protecting the safety and data of every citizen.</p>
-            <a href="tel:0" class="call-btn">Initialize Sync</a>
+            <p class="mission">Stewarding public service integrity and maintaining 100% uptime for state-wide digital infrastructure.</p>
+            <a href="tel:0" class="call-btn">Initialize Call (0)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">AKST</div>
+            <div class="tz">AKST</div>
             <span class="industry">Government / Multinational</span>
-            <h2 class="company-name">Gobierno Federal de los Estados Unidos Mexicanos</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
+            <h2 class="company">Gobierno Federal de los Estados Unidos Mexicanos</h2>
+            <div class="dm-line">
                 <p class="dm-name">Bill Smith</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:0" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:0" class="call-btn">Initialize Call (0)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">AKST</div>
+            <div class="tz">AKST</div>
             <span class="industry">Defense/Security/Police</span>
-            <h2 class="company-name">Alaska Dept of Public Safety</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
+            <h2 class="company">Alaska Dept of Public Safety</h2>
+            <div class="dm-line">
                 <p class="dm-name">Jason Smedley</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-907-465-4322" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-907-465-4322" class="call-btn">Initialize Call (1-907-465-4322)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">AKST</div>
+            <div class="tz">AKST</div>
             <span class="industry">Government: Justice</span>
-            <h2 class="company-name">ALASKA DEPT OF CORRECTIONS</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
+            <h2 class="company">ALASKA DEPT OF CORRECTIONS</h2>
+            <div class="dm-line">
                 <p class="dm-name">Brian Werk</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-907-465-4652" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-907-465-4652" class="call-btn">Initialize Call (1-907-465-4652)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">AKST</div>
+            <div class="tz">AKST</div>
             <span class="industry">Government: State/Local</span>
-            <h2 class="company-name">ALASKA LOCAL GOV</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">ALASKA LOCAL GOV</h2>
+            <div class="dm-line">
+                <p class="dm-name">David Cottrell</p>
                 <p class="dm-pos">Chief Information Officer</p>
             </div>
-            <p class="story">The steward of essential public services. Their mission is to maintain 100% uptime for state-wide infrastructure, protecting the safety and data of every citizen.</p>
-            <a href="tel:0" class="call-btn">Initialize Sync</a>
+            <p class="mission">Stewarding public service integrity and maintaining 100% uptime for state-wide digital infrastructure.</p>
+            <a href="tel:0" class="call-btn">Initialize Call (0)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">AKST</div>
+            <div class="tz">AKST</div>
             <span class="industry">Education: K-12 /School</span>
-            <h2 class="company-name">ALASKA K-12</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">ALASKA K-12</h2>
+            <div class="dm-line">
+                <p class="dm-name">Stephen Thormann</p>
                 <p class="dm-pos">Director of Technology</p>
             </div>
-            <p class="story">An engine for regional development. They create high-performance learning environments that empower the next generation with reliability.</p>
-            <a href="tel:0" class="call-btn">Initialize Sync</a>
+            <p class="mission">Empowering the next generation with high-performance, zero-latency learning environments.</p>
+            <a href="tel:0" class="call-btn">Initialize Call (0)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">AKST</div>
+            <div class="tz">AKST</div>
             <span class="industry">Education:Higher Ed/University</span>
-            <h2 class="company-name">ALASKA HIGHER ED</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">ALASKA HIGHER ED</h2>
+            <div class="dm-line">
+                <p class="dm-name">Roxane Kerr</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:0" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:0" class="call-btn">Initialize Call (0)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">AKST</div>
+            <div class="tz">AKST</div>
             <span class="industry">Government: Social Services</span>
-            <h2 class="company-name">ALASKA DEPT OF COMMERCE COMMUNITY & ECONOMIC</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">ALASKA DEPT OF COMMERCE COMMUNITY & ECONOMIC</h2>
+            <div class="dm-line">
+                <p class="dm-name">Christina Johnson</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-907-465-2500" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-907-465-2500" class="call-btn">Initialize Call (1-907-465-2500)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">AKST</div>
+            <div class="tz">AKST</div>
             <span class="industry">Government: Social Services</span>
-            <h2 class="company-name">Fairbanks Native Association</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">Fairbanks Native Association</h2>
+            <div class="dm-line">
+                <p class="dm-name">Dan Locke</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-907-452-1648" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-907-452-1648" class="call-btn">Initialize Call (1-907-452-1648)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">AKST</div>
+            <div class="tz">AKST</div>
             <span class="industry">Gov. Administration & Finance</span>
-            <h2 class="company-name">ALASKA DEPT OF ADMINISTRATION</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">ALASKA DEPT OF ADMINISTRATION</h2>
+            <div class="dm-line">
+                <p class="dm-name">Mitch S.</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-907-465-2200" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-907-465-2200" class="call-btn">Initialize Call (1-907-465-2200)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">AKST</div>
+            <div class="tz">AKST</div>
             <span class="industry">Service Providers</span>
-            <h2 class="company-name">Arctic Slope Telephone Association Cooperative,</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">Arctic Slope Telephone Association Cooperative,</h2>
+            <div class="dm-line">
+                <p class="dm-name">Whitney Brown</p>
                 <p class="dm-pos">Chief Operations Officer</p>
             </div>
-            <p class="story">Dedicated to bridging the infrastructure gap in regional hubs. Their mission is community connectivity, ensuring that remote populations have stable access to essential digital resources.</p>
-            <a href="tel:#N/A" class="call-btn">Initialize Sync</a>
+            <p class="mission">Bridging the infrastructure gap in regional hubs through community connectivity and emergency service stability.</p>
+            <a href="tel:#N/A" class="call-btn">Initialize Call (#N/A)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">AKST</div>
+            <div class="tz">AKST</div>
             <span class="industry">Oil and Gas</span>
-            <h2 class="company-name">ARCTIC INFORMATION TECHNOLOGY, INC</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">ARCTIC INFORMATION TECHNOLOGY, INC</h2>
+            <div class="dm-line">
+                <p class="dm-name">Z. Daniel Graham</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:" class="call-btn">Initialize Call ()</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">AKST</div>
+            <div class="tz">AKST</div>
             <span class="industry">Healthcare Providers</span>
-            <h2 class="company-name">Ashley,</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">Ashley,</h2>
+            <div class="dm-line">
+                <p class="dm-name">Bill Smith</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">Committed to the health and safety of the regional population. Their mission is to provide high-fidelity patient care and secure telehealth access.</p>
-            <a href="tel:0" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing patient data and telehealth access to protect the well-being of regional communities.</p>
+            <a href="tel:0" class="call-btn">Initialize Call (0)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">AKST</div>
+            <div class="tz">AKST</div>
             <span class="industry">Research</span>
-            <h2 class="company-name">DEEPTREE, INC.</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">DEEPTREE, INC.</h2>
+            <div class="dm-line">
+                <p class="dm-name">Jason Smedley</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:2509537800" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:2509537800" class="call-btn">Initialize Call (2509537800)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">AKST</div>
+            <div class="tz">AKST</div>
             <span class="industry">Enterprise</span>
-            <h2 class="company-name">COPPER VALLEY TELEPHONE COOPERATIVE INCORPORATED</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">COPPER VALLEY TELEPHONE COOPERATIVE INCORPORATED</h2>
+            <div class="dm-line">
+                <p class="dm-name">Brian Werk</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:(907) 835-2231" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(907) 835-2231" class="call-btn">Initialize Call ((907) 835-2231)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">AKST</div>
+            <div class="tz">AKST</div>
             <span class="industry">Enterprise</span>
-            <h2 class="company-name">FAIRBANKS PUBLISHING CO INC</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">FAIRBANKS PUBLISHING CO INC</h2>
+            <div class="dm-line">
+                <p class="dm-name">David Cottrell</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:(907) 456-6661" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(907) 456-6661" class="call-btn">Initialize Call ((907) 456-6661)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">AKST</div>
+            <div class="tz">AKST</div>
             <span class="industry">Enterprise</span>
-            <h2 class="company-name">HARDING HOLDINGS INC</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">HARDING HOLDINGS INC</h2>
+            <div class="dm-line">
+                <p class="dm-name">Stephen Thormann</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:(907) 344-1577" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(907) 344-1577" class="call-btn">Initialize Call ((907) 344-1577)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">AKST</div>
+            <div class="tz">AKST</div>
             <span class="industry">Enterprise</span>
-            <h2 class="company-name">ALASKA DEPT OF NATURAL RESOURCES</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">ALASKA DEPT OF NATURAL RESOURCES</h2>
+            <div class="dm-line">
+                <p class="dm-name">Roxane Kerr</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:(907) 269-8431" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(907) 269-8431" class="call-btn">Initialize Call ((907) 269-8431)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">AKST</div>
+            <div class="tz">AKST</div>
             <span class="industry">Enterprise</span>
-            <h2 class="company-name">ALASKA DEPT OF REVENUE</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">ALASKA DEPT OF REVENUE</h2>
+            <div class="dm-line">
+                <p class="dm-name">Christina Johnson</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:(907) 465-3749" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(907) 465-3749" class="call-btn">Initialize Call ((907) 465-3749)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">AKST</div>
+            <div class="tz">AKST</div>
             <span class="industry">Enterprise</span>
-            <h2 class="company-name">PEAK OILFIELD SERVICE COMPANY LLC</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">PEAK OILFIELD SERVICE COMPANY LLC</h2>
+            <div class="dm-line">
+                <p class="dm-name">Dan Locke</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:(907) 263-7000" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(907) 263-7000" class="call-btn">Initialize Call ((907) 263-7000)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">AKST</div>
+            <div class="tz">AKST</div>
             <span class="industry">Enterprise</span>
-            <h2 class="company-name">ATHLETIC CLUB HOLDINGS INC</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">ATHLETIC CLUB HOLDINGS INC</h2>
+            <div class="dm-line">
+                <p class="dm-name">Mitch S.</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:(907) 789-2181" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(907) 789-2181" class="call-btn">Initialize Call ((907) 789-2181)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">AKST</div>
+            <div class="tz">AKST</div>
             <span class="industry">Enterprise</span>
-            <h2 class="company-name">LABORERS INTERNATIONAL UNION OF NORTH AMERICA</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">LABORERS INTERNATIONAL UNION OF NORTH AMERICA</h2>
+            <div class="dm-line">
+                <p class="dm-name">Whitney Brown</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:(907) 586-2860" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(907) 586-2860" class="call-btn">Initialize Call ((907) 586-2860)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Media & Entertainment</span>
-            <h2 class="company-name">Al Jazeera International (usa),</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">Al Jazeera International (usa),</h2>
+            <div class="dm-line">
+                <p class="dm-name">Z. Daniel Graham</p>
                 <p class="dm-pos">VP of Engineering</p>
             </div>
-            <p class="story">Committed to public transparency. They serve as the primary archive for regional democratic processes, ensuring 24/7 access to civic engagement and information.</p>
-            <a href="tel:0" class="call-btn">Initialize Sync</a>
+            <p class="mission">Preserving historical transparency and civic engagement through world-class digital archival.</p>
+            <a href="tel:0" class="call-btn">Initialize Call (0)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Media & Entertainment</span>
-            <h2 class="company-name">National Cable Satellite Corp</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">National Cable Satellite Corp</h2>
+            <div class="dm-line">
+                <p class="dm-name">Bill Smith</p>
                 <p class="dm-pos">VP of Engineering</p>
             </div>
-            <p class="story">Committed to public transparency. They serve as the primary archive for regional democratic processes, ensuring 24/7 access to civic engagement and information.</p>
-            <a href="tel:1-202-737-3220" class="call-btn">Initialize Sync</a>
+            <p class="mission">Preserving historical transparency and civic engagement through world-class digital archival.</p>
+            <a href="tel:1-202-737-3220" class="call-btn">Initialize Call (1-202-737-3220)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Banking</span>
-            <h2 class="company-name">Euroclear Bank</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">Euroclear Bank</h2>
+            <div class="dm-line">
+                <p class="dm-name">Jason Smedley</p>
                 <p class="dm-pos">CIO / Infrastructure Lead</p>
             </div>
-            <p class="story">A pillar of regional economic growth. They focus on community reinvestment, providing local small businesses and families with the financial foundation needed to thrive.</p>
-            <a href="tel:0" class="call-btn">Initialize Sync</a>
+            <p class="mission">Driving regional economic growth and wealth building through secure community financial access.</p>
+            <a href="tel:0" class="call-btn">Initialize Call (0)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Banking</span>
-            <h2 class="company-name">Ibw Financial Corporation</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">Ibw Financial Corporation</h2>
+            <div class="dm-line">
+                <p class="dm-name">Brian Werk</p>
                 <p class="dm-pos">CIO / Infrastructure Lead</p>
             </div>
-            <p class="story">A pillar of regional economic growth. They focus on community reinvestment, providing local small businesses and families with the financial foundation needed to thrive.</p>
-            <a href="tel:1-202-722-2000" class="call-btn">Initialize Sync</a>
+            <p class="mission">Driving regional economic growth and wealth building through secure community financial access.</p>
+            <a href="tel:1-202-722-2000" class="call-btn">Initialize Call (1-202-722-2000)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Banking</span>
-            <h2 class="company-name">PA Consulting Group</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">PA Consulting Group</h2>
+            <div class="dm-line">
+                <p class="dm-name">David Cottrell</p>
                 <p class="dm-pos">CIO / Infrastructure Lead</p>
             </div>
-            <p class="story">A pillar of regional economic growth. They focus on community reinvestment, providing local small businesses and families with the financial foundation needed to thrive.</p>
-            <a href="tel:" class="call-btn">Initialize Sync</a>
+            <p class="mission">Driving regional economic growth and wealth building through secure community financial access.</p>
+            <a href="tel:" class="call-btn">Initialize Call ()</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Insurance</span>
-            <h2 class="company-name">INTERNATIONAL BROTHERHOOD OF PAINTERS AND ALLIED</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">INTERNATIONAL BROTHERHOOD OF PAINTERS AND ALLIED</h2>
+            <div class="dm-line">
+                <p class="dm-name">Stephen Thormann</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:" class="call-btn">Initialize Call ()</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Life Sciences</span>
-            <h2 class="company-name">The Heritage Foundation</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">The Heritage Foundation</h2>
+            <div class="dm-line">
+                <p class="dm-name">Roxane Kerr</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-202-546-4400" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-202-546-4400" class="call-btn">Initialize Call (1-202-546-4400)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Life Sciences</span>
-            <h2 class="company-name">INTERNATIONAL FOOD POLICY RESEARCH INSTITUTE</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">INTERNATIONAL FOOD POLICY RESEARCH INSTITUTE</h2>
+            <div class="dm-line">
+                <p class="dm-name">Christina Johnson</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-202-862-5600" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-202-862-5600" class="call-btn">Initialize Call (1-202-862-5600)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Legal Services</span>
-            <h2 class="company-name">KELLER AND HECKMAN LLP</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">KELLER AND HECKMAN LLP</h2>
+            <div class="dm-line">
+                <p class="dm-name">Dan Locke</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:0" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:0" class="call-btn">Initialize Call (0)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Business Services</span>
-            <h2 class="company-name">American Bankers Association</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">American Bankers Association</h2>
+            <div class="dm-line">
+                <p class="dm-name">Mitch S.</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-202-663-5000" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-202-663-5000" class="call-btn">Initialize Call (1-202-663-5000)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Business Services</span>
-            <h2 class="company-name">The American College of Obstetricians and Gynecologists</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">The American College of Obstetricians and Gynecologists</h2>
+            <div class="dm-line">
+                <p class="dm-name">Whitney Brown</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:0" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:0" class="call-btn">Initialize Call (0)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Business Services</span>
-            <h2 class="company-name">Tokyo Electric Power Company,</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">Tokyo Electric Power Company,</h2>
+            <div class="dm-line">
+                <p class="dm-name">Z. Daniel Graham</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:0" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:0" class="call-btn">Initialize Call (0)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Business Services</span>
-            <h2 class="company-name">CHAMBER OF COMMERCE OF THE UNITED STATES OF AMERICA</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">CHAMBER OF COMMERCE OF THE UNITED STATES OF AMERICA</h2>
+            <div class="dm-line">
+                <p class="dm-name">Bill Smith</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-202-659-6000" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-202-659-6000" class="call-btn">Initialize Call (1-202-659-6000)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Legal Services</span>
-            <h2 class="company-name">WILKINSON WALSH + ESKOVITZ LLP</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">WILKINSON WALSH + ESKOVITZ LLP</h2>
+            <div class="dm-line">
+                <p class="dm-name">Jason Smedley</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-202-847-4000" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-202-847-4000" class="call-btn">Initialize Call (1-202-847-4000)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Legal Services</span>
-            <h2 class="company-name">Caplin & Drysdale, Chartered</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">Caplin & Drysdale, Chartered</h2>
+            <div class="dm-line">
+                <p class="dm-name">Brian Werk</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-202-862-5080" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-202-862-5080" class="call-btn">Initialize Call (1-202-862-5080)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Charities</span>
-            <h2 class="company-name">United States Conference of Catholic Bishops</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">United States Conference of Catholic Bishops</h2>
+            <div class="dm-line">
+                <p class="dm-name">David Cottrell</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-202-541-3000" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-202-541-3000" class="call-btn">Initialize Call (1-202-541-3000)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Business Services</span>
-            <h2 class="company-name">TEMPUS INC</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">TEMPUS INC</h2>
+            <div class="dm-line">
+                <p class="dm-name">Stephen Thormann</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:0" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:0" class="call-btn">Initialize Call (0)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Business Services</span>
-            <h2 class="company-name">National Postal Mail Handlers Union</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">National Postal Mail Handlers Union</h2>
+            <div class="dm-line">
+                <p class="dm-name">Roxane Kerr</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-202-833-9095" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-202-833-9095" class="call-btn">Initialize Call (1-202-833-9095)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Business Services</span>
-            <h2 class="company-name">American National Standards Institute,</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">American National Standards Institute,</h2>
+            <div class="dm-line">
+                <p class="dm-name">Christina Johnson</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:2126424880" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:2126424880" class="call-btn">Initialize Call (2126424880)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Business Services</span>
-            <h2 class="company-name">International Code Council,</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">International Code Council,</h2>
+            <div class="dm-line">
+                <p class="dm-name">Dan Locke</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-888-422-7233" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-888-422-7233" class="call-btn">Initialize Call (1-888-422-7233)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Business Services</span>
-            <h2 class="company-name">National Association of Letter Carriers</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">National Association of Letter Carriers</h2>
+            <div class="dm-line">
+                <p class="dm-name">Mitch S.</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-202-393-4695" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-202-393-4695" class="call-btn">Initialize Call (1-202-393-4695)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Engineering services</span>
-            <h2 class="company-name">Torti Gallas and Partners,</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">Torti Gallas and Partners,</h2>
+            <div class="dm-line">
+                <p class="dm-name">Whitney Brown</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-240-645-1210" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-240-645-1210" class="call-btn">Initialize Call (1-240-645-1210)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Business Services</span>
-            <h2 class="company-name">International Union of Bricklayers & Allied Craftworkers</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">International Union of Bricklayers & Allied Craftworkers</h2>
+            <div class="dm-line">
+                <p class="dm-name">Z. Daniel Graham</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:8004640988" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:8004640988" class="call-btn">Initialize Call (8004640988)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Business Services</span>
-            <h2 class="company-name">WILDERNESS SOCIETY, THE</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">WILDERNESS SOCIETY, THE</h2>
+            <div class="dm-line">
+                <p class="dm-name">Bill Smith</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-202-833-2300" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-202-833-2300" class="call-btn">Initialize Call (1-202-833-2300)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Real Estate</span>
-            <h2 class="company-name">Ctf Development,</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">Ctf Development,</h2>
+            <div class="dm-line">
+                <p class="dm-name">Jason Smedley</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-202-533-1205" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-202-533-1205" class="call-btn">Initialize Call (1-202-533-1205)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Business Consultancy</span>
-            <h2 class="company-name">Governmentcio LLC</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">Governmentcio LLC</h2>
+            <div class="dm-line">
+                <p class="dm-name">Brian Werk</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-443-529-0545" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-443-529-0545" class="call-btn">Initialize Call (1-443-529-0545)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Business Services</span>
-            <h2 class="company-name">METROPOLITAN WASHINGTON COUNCIL OF GOVERNMENTS</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">METROPOLITAN WASHINGTON COUNCIL OF GOVERNMENTS</h2>
+            <div class="dm-line">
+                <p class="dm-name">David Cottrell</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:0" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:0" class="call-btn">Initialize Call (0)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">-</span>
-            <h2 class="company-name">GREENSTEIN DELORME & LUCHS PC</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">GREENSTEIN DELORME & LUCHS PC</h2>
+            <div class="dm-line">
+                <p class="dm-name">Stephen Thormann</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:0" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:0" class="call-btn">Initialize Call (0)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Education:Higher Ed/University</span>
-            <h2 class="company-name">Howard University</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">Howard University</h2>
+            <div class="dm-line">
+                <p class="dm-name">Roxane Kerr</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-202-806-6100" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-202-806-6100" class="call-btn">Initialize Call (1-202-806-6100)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Education: K-12 /School</span>
-            <h2 class="company-name">DISTRICT OF COLUMBIA K-12</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">DISTRICT OF COLUMBIA K-12</h2>
+            <div class="dm-line">
+                <p class="dm-name">Christina Johnson</p>
                 <p class="dm-pos">Director of Technology</p>
             </div>
-            <p class="story">An engine for regional development. They create high-performance learning environments that empower the next generation with reliability.</p>
-            <a href="tel:0" class="call-btn">Initialize Sync</a>
+            <p class="mission">Empowering the next generation with high-performance, zero-latency learning environments.</p>
+            <a href="tel:0" class="call-btn">Initialize Call (0)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Computer Software/Services</span>
-            <h2 class="company-name">CLOUDHQ</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">CLOUDHQ</h2>
+            <div class="dm-line">
+                <p class="dm-name">Dan Locke</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:0" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:0" class="call-btn">Initialize Call (0)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Business Services</span>
-            <h2 class="company-name">National Education Association</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">National Education Association</h2>
+            <div class="dm-line">
+                <p class="dm-name">Mitch S.</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:" class="call-btn">Initialize Call ()</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Enterprise</span>
-            <h2 class="company-name">CATALIST LLC</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">CATALIST LLC</h2>
+            <div class="dm-line">
+                <p class="dm-name">Whitney Brown</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:(202) 962-7200" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(202) 962-7200" class="call-btn">Initialize Call ((202) 962-7200)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Enterprise</span>
-            <h2 class="company-name">KRAMON & GRAHAM PA</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">KRAMON & GRAHAM PA</h2>
+            <div class="dm-line">
+                <p class="dm-name">Z. Daniel Graham</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:(410) 752-6030" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(410) 752-6030" class="call-btn">Initialize Call ((410) 752-6030)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Enterprise</span>
-            <h2 class="company-name">NATIONAL DEFENSE UNIVERSITY</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">NATIONAL DEFENSE UNIVERSITY</h2>
+            <div class="dm-line">
+                <p class="dm-name">Bill Smith</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:(202) 685-4700" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(202) 685-4700" class="call-btn">Initialize Call ((202) 685-4700)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Enterprise</span>
-            <h2 class="company-name">SAUDIA ARABIA MINISTRY OF INFORMATION</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">SAUDIA ARABIA MINISTRY OF INFORMATION</h2>
+            <div class="dm-line">
+                <p class="dm-name">Jason Smedley</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:(202) 944-3890" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(202) 944-3890" class="call-btn">Initialize Call ((202) 944-3890)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Enterprise</span>
-            <h2 class="company-name">UNIVERSITY CORPORATION FOR ADVANCED INTERNET D</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">UNIVERSITY CORPORATION FOR ADVANCED INTERNET D</h2>
+            <div class="dm-line">
+                <p class="dm-name">Brian Werk</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:(202) 803-8995" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(202) 803-8995" class="call-btn">Initialize Call ((202) 803-8995)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Enterprise</span>
-            <h2 class="company-name">WHITMAN-WALKER CLINIC INC</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">WHITMAN-WALKER CLINIC INC</h2>
+            <div class="dm-line">
+                <p class="dm-name">David Cottrell</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:(202) 543-3370" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(202) 543-3370" class="call-btn">Initialize Call ((202) 543-3370)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Enterprise</span>
-            <h2 class="company-name">BEVERIDGE & DIAMOND PC</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">BEVERIDGE & DIAMOND PC</h2>
+            <div class="dm-line">
+                <p class="dm-name">Stephen Thormann</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:(202) 789-6000" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(202) 789-6000" class="call-btn">Initialize Call ((202) 789-6000)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Enterprise</span>
-            <h2 class="company-name">ROTHWELL FIGG ERNST & MANBECK PC</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">ROTHWELL FIGG ERNST & MANBECK PC</h2>
+            <div class="dm-line">
+                <p class="dm-name">Roxane Kerr</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:(202) 783-6040" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(202) 783-6040" class="call-btn">Initialize Call ((202) 783-6040)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Enterprise</span>
-            <h2 class="company-name">WASHINGTON HEADQUARTERS SERVICES</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">WASHINGTON HEADQUARTERS SERVICES</h2>
+            <div class="dm-line">
+                <p class="dm-name">Christina Johnson</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:-" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:-" class="call-btn">Initialize Call (-)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Enterprise</span>
-            <h2 class="company-name">SCIENCE & TECHNOLOGY DIRECTORATE-S&T</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">SCIENCE & TECHNOLOGY DIRECTORATE-S&T</h2>
+            <div class="dm-line">
+                <p class="dm-name">Dan Locke</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:-" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:-" class="call-btn">Initialize Call (-)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Enterprise</span>
-            <h2 class="company-name">RALLY HEALTH</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">RALLY HEALTH</h2>
+            <div class="dm-line">
+                <p class="dm-name">Mitch S.</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:(202) 469-7728" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(202) 469-7728" class="call-btn">Initialize Call ((202) 469-7728)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Enterprise</span>
-            <h2 class="company-name">HILLWOOD ESTATE MUSEUM & GARDENS</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">HILLWOOD ESTATE MUSEUM & GARDENS</h2>
+            <div class="dm-line">
+                <p class="dm-name">Whitney Brown</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:(202) 243-3968" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(202) 243-3968" class="call-btn">Initialize Call ((202) 243-3968)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Enterprise</span>
-            <h2 class="company-name">AMERICAN ASSOCIATION OF STATE HIGHWAY AND TRANSPORTATION OFFICIALS</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">AMERICAN ASSOCIATION OF STATE HIGHWAY AND TRANSPORTATION OFFICIALS</h2>
+            <div class="dm-line">
+                <p class="dm-name">Z. Daniel Graham</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:(202) 624-3508" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(202) 624-3508" class="call-btn">Initialize Call ((202) 624-3508)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Enterprise</span>
-            <h2 class="company-name">AMERICAN PSYCHIATRIC ASSOCIATION</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">AMERICAN PSYCHIATRIC ASSOCIATION</h2>
+            <div class="dm-line">
+                <p class="dm-name">Bill Smith</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:(800) 368-5777" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(800) 368-5777" class="call-btn">Initialize Call ((800) 368-5777)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Enterprise</span>
-            <h2 class="company-name">ARD GERMAN RADIO AND TELEVISION NETWORK</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">ARD GERMAN RADIO AND TELEVISION NETWORK</h2>
+            <div class="dm-line">
+                <p class="dm-name">Jason Smedley</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:(202) 298-4050" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(202) 298-4050" class="call-btn">Initialize Call ((202) 298-4050)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">EST</div>
+            <div class="tz">EST</div>
             <span class="industry">Enterprise</span>
-            <h2 class="company-name">WEINER BRODSKY SIDMAN KIDER PC</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">WEINER BRODSKY SIDMAN KIDER PC</h2>
+            <div class="dm-line">
+                <p class="dm-name">Brian Werk</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:(202) 628-2000" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:(202) 628-2000" class="call-btn">Initialize Call ((202) 628-2000)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">MST</div>
+            <div class="tz">MST</div>
             <span class="industry">Healthcare Providers</span>
-            <h2 class="company-name">BOUNDARY COMMUNITY HOSPITAL & NURSING HOME</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">BOUNDARY COMMUNITY HOSPITAL & NURSING HOME</h2>
+            <div class="dm-line">
+                <p class="dm-name">David Cottrell</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">Committed to the health and safety of the regional population. Their mission is to provide high-fidelity patient care and secure telehealth access.</p>
-            <a href="tel:1-208-267-3141" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing patient data and telehealth access to protect the well-being of regional communities.</p>
+            <a href="tel:1-208-267-3141" class="call-btn">Initialize Call (1-208-267-3141)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">MST</div>
+            <div class="tz">MST</div>
             <span class="industry">Healthcare Providers</span>
-            <h2 class="company-name">RIVERS LOST MEDICAL CENTER</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">RIVERS LOST MEDICAL CENTER</h2>
+            <div class="dm-line">
+                <p class="dm-name">Stephen Thormann</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">Committed to the health and safety of the regional population. Their mission is to provide high-fidelity patient care and secure telehealth access.</p>
-            <a href="tel:" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing patient data and telehealth access to protect the well-being of regional communities.</p>
+            <a href="tel:" class="call-btn">Initialize Call ()</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">MST</div>
+            <div class="tz">MST</div>
             <span class="industry">Oil and Gas</span>
-            <h2 class="company-name">Coleman Oil Company, LLC</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">Coleman Oil Company, LLC</h2>
+            <div class="dm-line">
+                <p class="dm-name">Roxane Kerr</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:0" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:0" class="call-btn">Initialize Call (0)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">MST</div>
+            <div class="tz">MST</div>
             <span class="industry">Retail</span>
-            <h2 class="company-name">Blue Dog Rv,</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">Blue Dog Rv,</h2>
+            <div class="dm-line">
+                <p class="dm-name">Christina Johnson</p>
                 <p class="dm-pos">Business Development Manager</p>
             </div>
-            <p class="story">Provides the lifeblood of regional supply chain logistics. They are dedicated to community self-sufficiency, managing the movement of goods to where they are needed most.</p>
-            <a href="tel:1-208-457-7256" class="call-btn">Initialize Sync</a>
+            <p class="mission">Providing the logistical backbone for regional supply chains and community self-sufficiency.</p>
+            <a href="tel:1-208-457-7256" class="call-btn">Initialize Call (1-208-457-7256)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">MST</div>
+            <div class="tz">MST</div>
             <span class="industry">Retail</span>
-            <h2 class="company-name">Moscow & Pullman Building Supply,</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">Moscow & Pullman Building Supply,</h2>
+            <div class="dm-line">
+                <p class="dm-name">Dan Locke</p>
                 <p class="dm-pos">Business Development Manager</p>
             </div>
-            <p class="story">Provides the lifeblood of regional supply chain logistics. They are dedicated to community self-sufficiency, managing the movement of goods to where they are needed most.</p>
-            <a href="tel:1-208-882-4716" class="call-btn">Initialize Sync</a>
+            <p class="mission">Providing the logistical backbone for regional supply chains and community self-sufficiency.</p>
+            <a href="tel:1-208-882-4716" class="call-btn">Initialize Call (1-208-882-4716)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">MST</div>
+            <div class="tz">MST</div>
             <span class="industry">Discrete - Machinery</span>
-            <h2 class="company-name">Spudnik Equipment Company LLC</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">Spudnik Equipment Company LLC</h2>
+            <div class="dm-line">
+                <p class="dm-name">Mitch S.</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-208-684-4120" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-208-684-4120" class="call-btn">Initialize Call (1-208-684-4120)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">MST</div>
+            <div class="tz">MST</div>
             <span class="industry">Discrete - Energy & Nat. Res.</span>
-            <h2 class="company-name">Woodgrain Millwork,</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">Woodgrain Millwork,</h2>
+            <div class="dm-line">
+                <p class="dm-name">Whitney Brown</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-208-452-3801" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-208-452-3801" class="call-btn">Initialize Call (1-208-452-3801)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">MST</div>
+            <div class="tz">MST</div>
             <span class="industry">High Tech/Electronics</span>
-            <h2 class="company-name">Computerland Technology Group</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">Computerland Technology Group</h2>
+            <div class="dm-line">
+                <p class="dm-name">Z. Daniel Graham</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:0" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:0" class="call-btn">Initialize Call (0)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">MST</div>
+            <div class="tz">MST</div>
             <span class="industry">Discrete - Energy & Nat. Res.</span>
-            <h2 class="company-name">ADVANCED WELDING & STEEL INC</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">ADVANCED WELDING & STEEL INC</h2>
+            <div class="dm-line">
+                <p class="dm-name">Bill Smith</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:0" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:0" class="call-btn">Initialize Call (0)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">MST</div>
+            <div class="tz">MST</div>
             <span class="industry">Transportation&Trans Services</span>
-            <h2 class="company-name">NEWCOLD BURLEY LLC</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">NEWCOLD BURLEY LLC</h2>
+            <div class="dm-line">
+                <p class="dm-name">Jason Smedley</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:0" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:0" class="call-btn">Initialize Call (0)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">MST</div>
+            <div class="tz">MST</div>
             <span class="industry">Utilities</span>
-            <h2 class="company-name">KOOTENAI ELECTRIC COOPERATIVE INC</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">KOOTENAI ELECTRIC COOPERATIVE INC</h2>
+            <div class="dm-line">
+                <p class="dm-name">Brian Werk</p>
                 <p class="dm-pos">Infrastructure Manager</p>
             </div>
-            <p class="story">Ensuring the stability of the energy grid. Their mission is to provide consistent, reliable utility services that power homes and businesses.</p>
-            <a href="tel:1-208-765-1200" class="call-btn">Initialize Sync</a>
+            <p class="mission">Hardening the energy grid to ensure consistent, reliable utility services in challenging conditions.</p>
+            <a href="tel:1-208-765-1200" class="call-btn">Initialize Call (1-208-765-1200)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">MST</div>
+            <div class="tz">MST</div>
             <span class="industry">Discrete - Retail & CG</span>
-            <h2 class="company-name">PACIFIC CABINETS INC</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">PACIFIC CABINETS INC</h2>
+            <div class="dm-line">
+                <p class="dm-name">David Cottrell</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:2089625546" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:2089625546" class="call-btn">Initialize Call (2089625546)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">MST</div>
+            <div class="tz">MST</div>
             <span class="industry">Business Services</span>
-            <h2 class="company-name">YOUNG MEN'S CHRISTIAN ASSOCIATION OF BOISE CITY, IDAHO (THE)</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">YOUNG MEN'S CHRISTIAN ASSOCIATION OF BOISE CITY, IDAHO (THE)</h2>
+            <div class="dm-line">
+                <p class="dm-name">Stephen Thormann</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-208-344-5502" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-208-344-5502" class="call-btn">Initialize Call (1-208-344-5502)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">MST</div>
+            <div class="tz">MST</div>
             <span class="industry">Education: K-12 /School</span>
-            <h2 class="company-name">CASSIA COUNTY JOINT SCHOOL DISTRICT 151</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">CASSIA COUNTY JOINT SCHOOL DISTRICT 151</h2>
+            <div class="dm-line">
+                <p class="dm-name">Roxane Kerr</p>
                 <p class="dm-pos">Director of Technology</p>
             </div>
-            <p class="story">An engine for regional development. They create high-performance learning environments that empower the next generation with reliability.</p>
-            <a href="tel:1-208-878-6600" class="call-btn">Initialize Sync</a>
+            <p class="mission">Empowering the next generation with high-performance, zero-latency learning environments.</p>
+            <a href="tel:1-208-878-6600" class="call-btn">Initialize Call (1-208-878-6600)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">MST</div>
+            <div class="tz">MST</div>
             <span class="industry">Gov. Administration & Finance</span>
-            <h2 class="company-name">COUNTY OF KOOTENAI</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">COUNTY OF KOOTENAI</h2>
+            <div class="dm-line">
+                <p class="dm-name">Christina Johnson</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-208-446-1005" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-208-446-1005" class="call-btn">Initialize Call (1-208-446-1005)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">MST</div>
+            <div class="tz">MST</div>
             <span class="industry">Education: K-12 /School</span>
-            <h2 class="company-name">Jefferson Joint School District 251</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">Jefferson Joint School District 251</h2>
+            <div class="dm-line">
+                <p class="dm-name">Dan Locke</p>
                 <p class="dm-pos">Director of Technology</p>
             </div>
-            <p class="story">An engine for regional development. They create high-performance learning environments that empower the next generation with reliability.</p>
-            <a href="tel:1-208-745-6693" class="call-btn">Initialize Sync</a>
+            <p class="mission">Empowering the next generation with high-performance, zero-latency learning environments.</p>
+            <a href="tel:1-208-745-6693" class="call-btn">Initialize Call (1-208-745-6693)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">MST</div>
+            <div class="tz">MST</div>
             <span class="industry">Gov. Administration & Finance</span>
-            <h2 class="company-name">COUNTY OF ADA</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">COUNTY OF ADA</h2>
+            <div class="dm-line">
+                <p class="dm-name">Mitch S.</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-208-287-7080" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-208-287-7080" class="call-btn">Initialize Call (1-208-287-7080)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">MST</div>
+            <div class="tz">MST</div>
             <span class="industry">Government: State/Local</span>
-            <h2 class="company-name">IDAHO STATE GOV</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">IDAHO STATE GOV</h2>
+            <div class="dm-line">
+                <p class="dm-name">Whitney Brown</p>
                 <p class="dm-pos">Chief Information Officer</p>
             </div>
-            <p class="story">The steward of essential public services. Their mission is to maintain 100% uptime for state-wide infrastructure, protecting the safety and data of every citizen.</p>
-            <a href="tel:0" class="call-btn">Initialize Sync</a>
+            <p class="mission">Stewarding public service integrity and maintaining 100% uptime for state-wide digital infrastructure.</p>
+            <a href="tel:0" class="call-btn">Initialize Call (0)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">MST</div>
+            <div class="tz">MST</div>
             <span class="industry">Gov. Administration & Finance</span>
-            <h2 class="company-name">City of Idaho Falls</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">City of Idaho Falls</h2>
+            <div class="dm-line">
+                <p class="dm-name">Z. Daniel Graham</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-208-529-1235" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-208-529-1235" class="call-btn">Initialize Call (1-208-529-1235)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">MST</div>
+            <div class="tz">MST</div>
             <span class="industry">Gov. Administration & Finance</span>
-            <h2 class="company-name">COUNTY OF BLAINE (ID)</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">COUNTY OF BLAINE (ID)</h2>
+            <div class="dm-line">
+                <p class="dm-name">Bill Smith</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-208-788-5505" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-208-788-5505" class="call-btn">Initialize Call (1-208-788-5505)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">MST</div>
+            <div class="tz">MST</div>
             <span class="industry">Government: State/Local</span>
-            <h2 class="company-name">Executive Office of The State of Idaho</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">Executive Office of The State of Idaho</h2>
+            <div class="dm-line">
+                <p class="dm-name">Jason Smedley</p>
                 <p class="dm-pos">Chief Information Officer</p>
             </div>
-            <p class="story">The steward of essential public services. Their mission is to maintain 100% uptime for state-wide infrastructure, protecting the safety and data of every citizen.</p>
-            <a href="tel:1-208-334-2100" class="call-btn">Initialize Sync</a>
+            <p class="mission">Stewarding public service integrity and maintaining 100% uptime for state-wide digital infrastructure.</p>
+            <a href="tel:1-208-334-2100" class="call-btn">Initialize Call (1-208-334-2100)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">MST</div>
+            <div class="tz">MST</div>
             <span class="industry">Government: State/Local</span>
-            <h2 class="company-name">IDAHO LOCAL GOV</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">IDAHO LOCAL GOV</h2>
+            <div class="dm-line">
+                <p class="dm-name">Brian Werk</p>
                 <p class="dm-pos">Chief Information Officer</p>
             </div>
-            <p class="story">The steward of essential public services. Their mission is to maintain 100% uptime for state-wide infrastructure, protecting the safety and data of every citizen.</p>
-            <a href="tel:0" class="call-btn">Initialize Sync</a>
+            <p class="mission">Stewarding public service integrity and maintaining 100% uptime for state-wide digital infrastructure.</p>
+            <a href="tel:0" class="call-btn">Initialize Call (0)</a>
         </div>
     
         <div class="card">
-            <div class="tz-tag">MST</div>
+            <div class="tz">MST</div>
             <span class="industry">Gov. Services & Transportation</span>
-            <h2 class="company-name">IDAHO STATE LIQUOR DISPENSARY</h2>
-            <div class="dm-box">
-                <p class="dm-label">Primary Coordinator</p>
-                <p class="dm-name">IT Director (Direct Line)</p>
+            <h2 class="company">IDAHO STATE LIQUOR DISPENSARY</h2>
+            <div class="dm-line">
+                <p class="dm-name">David Cottrell</p>
                 <p class="dm-pos">IT Director</p>
             </div>
-            <p class="story">A key regional contributor focused on mission-critical stability and long-term community impact. Their 2026 priority is securing operational integrity.</p>
-            <a href="tel:1-208-947-9400" class="call-btn">Initialize Sync</a>
+            <p class="mission">Securing operational integrity to better serve regional shareholders and community partners.</p>
+            <a href="tel:1-208-947-9400" class="call-btn">Initialize Call (1-208-947-9400)</a>
         </div>
-    
-    </div></div>
-    <script>
-        function updateClock() {
-            const now = new Date();
-            const options = { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-            const clockEl = document.getElementById('clock');
-            if (clockEl) { clockEl.innerText = now.toLocaleTimeString('en-US', options) + ' EST'; }
-        }
-        setInterval(updateClock, 1000); updateClock();
-    </script>
-</body>
-</html>
+    </div></body></html>
