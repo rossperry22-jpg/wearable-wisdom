@@ -3,38 +3,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>COMMAND // VECTOR NEXUS v8.0</title>
+    <title>COMMAND // VECTOR NEXUS v9.0</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=Outfit:wght@200;500;800&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #ffffff; --surface: #f8fafc; --border: #e2e8f0; --accent: #10b981; --text: #0f172a; --dim: #64748b; }
+        :root { --bg: #ffffff; --surface: #ffffff; --border: #ececec; --accent: #10b981; --text: #1a1a1a; --dim: #888; }
         body { background: var(--bg); color: var(--text); font-family: 'Outfit', sans-serif; margin: 0; padding: 0; }
-        header { background: #000; color: #fff; padding: 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
-        .logo { font-family: 'Space Grotesk'; font-weight: 700; letter-spacing: 12px; color: var(--accent); text-transform: uppercase; font-size: 14px; }
+        header { background: #000; color: #fff; padding: 30px 60px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; border-bottom: 4px solid var(--accent); }
+        .logo { font-family: 'Space Grotesk'; font-weight: 700; letter-spacing: 12px; color: #fff; text-transform: uppercase; font-size: 14px; }
+        .logo span { color: var(--accent); }
         .meta-group { display: flex; gap: 40px; text-align: right; }
-        .label { font-size: 8px; text-transform: uppercase; letter-spacing: 2px; color: #475569; }
+        .label { font-size: 8px; text-transform: uppercase; letter-spacing: 2px; color: #666; }
         .value { font-size: 12px; font-weight: 700; font-family: 'Space Grotesk'; }
-        .container { max-width: 1600px; margin: 60px auto; padding: 0 40px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); gap: 30px; }
-        .card { background: var(--surface); border: 1px solid var(--border); padding: 50px; border-radius: 2px; transition: 0.4s; position: relative; display: flex; flex-direction: column; overflow: hidden; }
-        .card:hover { border-color: var(--accent); box-shadow: 0 40px 80px rgba(16,185,129,0.1); transform: translateY(-5px); }
-        .tz { position: absolute; top: 0; right: 0; background: var(--accent); color: #fff; font-size: 9px; font-weight: 900; padding: 12px 20px; }
-        .ind { font-size: 9px; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; display: block; }
-        .company { font-size: 28px; font-weight: 800; margin-bottom: 10px; color: #000; letter-spacing: -1px; }
-        .dm-block { margin-bottom: 30px; }
-        .dm-name { font-size: 16px; font-weight: 700; color: #000; text-transform: uppercase; }
-        .dm-pos { font-size: 12px; color: var(--dim); font-weight: 500; }
-        .mission { font-size: 15px; line-height: 1.8; color: #334155; margin-bottom: 30px; border-left: 1px solid var(--accent); padding-left: 24px; font-weight: 300; }
-        .call-btn { display: block; width: 100%; padding: 25px; background: #000; color: #fff; text-align: center; text-decoration: none; font-weight: 800; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; transition: 0.3s; margin-top: auto; }
-        .card:hover .call-btn { background: var(--accent); }
-        #clock { font-family: 'Space Grotesk'; font-size: 18px; color: #fff; }
+        .container { max-width: 1700px; margin: 40px auto; padding: 0 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 40px; }
+        .card { background: var(--surface); border: 1px solid var(--border); padding: 50px; border-radius: 4px; transition: 0.3s; position: relative; display: flex; flex-direction: column; }
+        .card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 30px 60px rgba(0,0,0,0.05); }
+        .tz { position: absolute; top: 30px; right: 30px; font-size: 10px; font-weight: 900; color: var(--accent); border: 1.5px solid var(--accent); padding: 4px 10px; border-radius: 20px; }
+        .ind { font-size: 10px; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; display: block; }
+        .company { font-size: 26px; font-weight: 800; margin-bottom: 25px; color: #000; letter-spacing: -1px; line-height: 1.1; }
+        .dm-block { margin-bottom: 30px; padding: 20px; background: #f9f9f9; border-radius: 8px; }
+        .dm-name { font-size: 14px; font-weight: 800; color: #000; text-transform: uppercase; margin-bottom: 4px; letter-spacing: 1px; }
+        .dm-pos { font-size: 11px; color: var(--dim); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .mission { font-size: 15px; line-height: 1.7; color: #444; margin-bottom: 35px; border-left: 3px solid var(--accent); padding-left: 24px; font-weight: 400; }
+        .call-btn { display: block; width: 100%; padding: 24px; background: #000; color: #fff; text-align: center; text-decoration: none; font-weight: 900; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; transition: 0.3s; margin-top: auto; border-radius: 4px; }
+        .call-btn:hover { background: var(--accent); color: #000; }
+        #clock { font-family: 'Space Grotesk'; font-size: 16px; font-weight: 700; }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">VECTOR // NEXUS v8.0</div>
+        <div class="logo">VECTOR // <span>COMMAND NEXUS</span></div>
         <div class="meta-group">
             <div><p class="label">Coordination Time</p><p id="clock">00:00:00 EST</p></div>
-            <div><p class="label">Saturation</p><p class="value">474 / 474 LEADS</p></div>
+            <div><p class="label">System Saturation</p><p class="value">474 LEADS SYNCED</p></div>
         </div>
     </header>
     <div class="container">
@@ -43,11 +44,11 @@
         </div>
     </div>
     <script>
-        function updateClock() {
+        function updateClock() {{
             const now = new Date();
-            const options = { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+            const options = {{ timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }};
             document.getElementById('clock').innerText = now.toLocaleTimeString('en-US', options) + ' EST';
-        }
+        }}
         setInterval(updateClock, 1000); updateClock();
     </script>
 </body>
