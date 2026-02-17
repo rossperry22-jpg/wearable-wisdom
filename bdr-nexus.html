@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VECTOR // COMMAND NEXUS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #ffffff; --surface: #f8fafc; --border: #e2e8f0; --accent: #10b981; --text: #0f172a; --dim: #64748b; }
+        body { background: var(--bg); color: var(--text); font-family: 'Outfit', sans-serif; margin: 0; padding: 40px; line-height: 1.6; }
+        header { background: #000; color: #fff; padding: 40px; display: flex; justify-content: space-between; align-items: center; border-radius: 8px; margin-bottom: 50px; }
+        .logo { font-size: 20px; font-weight: 900; letter-spacing: 5px; color: var(--accent); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); gap: 30px; }
+        .card { background: var(--surface); border: 1px solid var(--border); padding: 40px; border-radius: 12px; transition: 0.3s; position: relative; display: flex; flex-direction: column; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        .card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(16,185,129,0.1); }
+        .tz { position: absolute; top: 20px; right: 20px; font-size: 10px; font-weight: 900; background: var(--accent); color: white; padding: 4px 12px; border-radius: 20px; }
+        .industry { font-size: 10px; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+        .company { font-size: 28px; font-weight: 900; color: #000; margin-bottom: 20px; line-height: 1.1; }
+        .dm-block { background: white; padding: 20px; border-radius: 8px; border: 1px solid #edf2f7; margin-bottom: 25px; }
+        .dm-name { font-size: 16px; font-weight: 800; color: #000; text-transform: uppercase; }
+        .dm-pos { font-size: 12px; color: var(--accent); font-weight: 700; text-transform: uppercase; }
+        .mission { font-size: 15px; color: #475569; margin-bottom: 30px; border-left: 3px solid var(--accent); padding-left: 20px; }
+        .call-btn { display: block; width: 100%; padding: 20px; background: #000; color: #fff; text-align: center; text-decoration: none; font-weight: 900; border-radius: 6px; letter-spacing: 2px; transition: 0.2s; }
+        .call-btn:hover { background: var(--accent); color: white; }
+    </style>
+</head>
+<body>
+    <header><div class="logo">VECTOR // COMMAND NEXUS</div></header>
+    <div class="grid">
+        <div class="card">
+            <div class="tz">AKST</div>
+            <span class="industry">Service Providers</span>
+            <h2 class="company">Sea Lion Holdings</h2>
+            <div class="dm-block"><p class="dm-name">David Cottrell</p><p class="dm-pos">Chief Information Officer</p></div>
+            <p class="mission">Sea Lion is the digital heartbeat of the Hooper Bay community. Their mission is providing critical logistical and utility services to Native Alaskan shareholders. The 2026 upgrade ensures their infrastructure can handle the harsh coastal data demands without failure.</p>
+            <a href="tel:19077584708" class="call-btn">Initialize Call (1-907-758-4708)</a>
+        </div>
+        <div class="card">
+            <div class="tz">AKST</div>
+            <span class="industry">Retail</span>
+            <h2 class="company">Tikigaq Corporation</h2>
+            <div class="dm-block"><p class="dm-name">Christina Johnson</p><p class="dm-pos">Business Development Manager</p></div>
+            <p class="mission">A global leader in government contracting, Tikigaq provides essential construction and environmental services. Their mission is shareholders self-sufficiency through operational excellence. Upgrading their server density reduces latency for their remote teams across the contiguous US and Guam.</p>
+            <a href="tel:1-907-365-6299" class="call-btn">Initialize Call (1-907-365-6299)</a>
+        </div>
+        <div class="card">
+            <div class="tz">EST</div>
+            <span class="industry">Banking</span>
+            <h2 class="company">Industrial Bank (IBW)</h2>
+            <div class="dm-block"><p class="dm-name">Stephen Thormann</p><p class="dm-pos">Chief Information Officer</p></div>
+            <p class="mission">Industrial Bank has been a pillar of the DC community since 1934, driving local wealth creation and business growth. Their mission is financial empowerment. Modernizing their compute stack is vital to meeting 2026 banking compliance standards while protecting customer assets.</p>
+            <a href="tel:12027222000" class="call-btn">Initialize Call (1-202-722-2000)</a>
+        </div>
+        <div class="card">
+            <div class="tz">EST</div>
+            <span class="industry">Media</span>
+            <h2 class="company">C-SPAN (NCSC)</h2>
+            <div class="dm-block"><p class="dm-name">Roxane Kerr</p><p class="dm-pos">VP Engineering</p></div>
+            <p class="mission">C-SPAN is the steward of American democratic transparency. Their massive video archive is a world-class resource for historical preservation. The 2026 election cycle archival load is a high-magnitude event, making 100% compute redundancy a non-negotiable mission priority.</p>
+            <a href="tel:12027373220" class="call-btn">Initialize Call (1-202-722-3220)</a>
+        </div>
+    </div>
+</body>
+</html>
