@@ -3,233 +3,313 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COMMAND CENTER // HPE SERVER BDR</title>
+    <title>VECTOR COMMAND // NEXUS v7.0</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Outfit:wght@200;400;700;900&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg: #010101;
-            --surface: #0a0a0c;
-            --surface-bright: #121216;
-            --border: #1c1c22;
-            --accent: #d4af37; /* Vector Gold */
-            --accent-glow: rgba(212, 175, 55, 0.1);
-            --text-main: #f0f0f5;
-            --text-dim: #71717a;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            background: var(--bg); 
-            color: var(--text-main); 
-            font-family: 'Outfit', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            background-image: radial-gradient(circle at 50% 0%, #15151a 0%, #010101 100%);
-            min-height: 100vh;
-        }
-
-        .container { max-width: 1600px; margin: 0 auto; padding: 40px; }
-
-        header { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            margin-bottom: 60px;
-            padding: 30px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-        }
-
-        .logo-group { display: flex; align-items: center; gap: 20px; }
-        .logo-mark { width: 3px; height: 35px; background: var(--accent); }
-        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: 8px; font-size: 18px; text-transform: uppercase; color: #fff; }
-
-        .header-meta { display: flex; gap: 40px; }
-        .stat { text-align: right; }
-        .stat-label { font-size: 9px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 4px; }
-        .stat-value { font-size: 14px; font-weight: 700; color: var(--accent); font-family: 'Space Grotesk', sans-serif; }
-
-        .protocol-section {
-            background: linear-gradient(90deg, #0a0a0c 0%, #050505 100%);
-            border: 1px solid var(--border);
-            padding: 50px;
-            margin-bottom: 50px;
-            position: relative;
-        }
-        .protocol-tag { font-size: 10px; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 5px; margin-bottom: 25px; display: flex; align-items: center; gap: 15px; }
-        .protocol-tag span { width: 50px; height: 1px; background: var(--accent); }
-        .protocol-content { font-size: 24px; font-weight: 200; line-height: 1.5; color: #e4e4e7; max-width: 1100px; }
-        .protocol-content b { color: #fff; font-weight: 700; border-bottom: 2px solid var(--accent); }
-
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); gap: 32px; }
-
-        .card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            padding: 48px;
-            transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-        .card:hover {
-            border-color: rgba(212, 175, 55, 0.3);
-            background: var(--surface-bright);
-            transform: translateY(-8px);
-            box-shadow: 0 40px 80px rgba(0,0,0,0.8);
-        }
-
-        .industry-tag { font-size: 10px; font-weight: 900; color: var(--accent); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px; display: block; }
-        .company-name { font-size: 32px; font-weight: 700; color: #fff; letter-spacing: -0.5px; margin-bottom: 8px; }
-        .dm-name { font-size: 18px; color: var(--accent); font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 30px; }
-
-        .story-block {
-            font-size: 15px; line-height: 1.8; color: #9ca3af;
-            margin-bottom: 40px; padding: 0 0 0 24px; border-left: 1px solid #27272a;
-            font-weight: 300;
-        }
-
-        .data-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px; }
-        .data-point { background: rgba(255,255,255,0.02); padding: 20px; border: 1px solid rgba(255,255,255,0.04); }
-        .dp-label { font-size: 10px; font-weight: 800; color: var(--text-dim); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
-        .dp-value { font-size: 14px; font-weight: 600; color: #d1d5db; }
-
-        .intel-block { background: rgba(212, 175, 55, 0.04); border: 1px solid rgba(212, 175, 55, 0.1); padding: 30px; margin-bottom: 45px; flex-grow: 1; }
-        .intel-title { font-size: 11px; font-weight: 900; color: var(--accent); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 15px; }
-        .intel-text { font-size: 15px; line-height: 1.7; color: #d4d4d8; }
-
-        .call-btn {
-            display: block; width: 100%; padding: 28px; 
-            background: transparent; color: var(--accent); text-align: center;
-            font-size: 13px; font-weight: 900; text-transform: uppercase; letter-spacing: 6px;
-            text-decoration: none; border: 1px solid var(--accent);
-            transition: 0.4s;
-        }
-        .call-btn:hover { background: var(--accent); color: #000; transform: scale(1.02); }
-
-        #clock { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 15px; }
-
+        :root { --bg: #010101; --surface: #09090b; --border: #18181b; --accent: #d4af37; --text: #fafafa; --dim: #71717a; }
+        body { background: var(--bg); color: var(--text); font-family: 'Outfit', sans-serif; -webkit-font-smoothing: antialiased; margin: 0; padding: 40px; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 30px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 40px; }
+        .logo { font-family: 'Space Grotesk'; font-weight: 700; letter-spacing: 10px; font-size: 20px; color: var(--accent); text-transform: uppercase; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); gap: 30px; }
+        .card { background: var(--surface); border: 1px solid var(--border); padding: 40px; transition: 0.4s; position: relative; }
+        .card:hover { border-color: var(--accent); transform: scale(1.01); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .tz-badge { position: absolute; top: 40px; right: 40px; font-size: 10px; font-weight: 900; color: var(--accent); border: 1px solid var(--accent); padding: 4px 8px; }
+        .company { font-size: 32px; font-weight: 800; margin-bottom: 10px; letter-spacing: -0.5px; }
+        .ind-tag { font-size: 10px; color: var(--dim); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; display: block; }
+        .story { font-size: 15px; line-height: 1.8; color: #a1a1aa; margin-bottom: 30px; font-weight: 300; border-left: 2px solid var(--accent); padding-left: 20px; }
+        .btn { display: block; width: 100%; padding: 20px; border: 1px solid var(--accent); color: var(--accent); text-align: center; text-decoration: none; font-weight: 900; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; transition: 0.3s; }
+        .btn:hover { background: var(--accent); color: #000; }
+        #clock { font-family: 'Space Grotesk'; font-weight: 700; color: var(--accent); }
     </style>
 </head>
 <body>
-
-<div class="container">
     <header>
-        <div class="logo-group">
-            <div class="logo-mark"></div>
-            <div class="logo-text">VECTOR COMMAND</div>
-        </div>
-        <div class="header-meta">
-            <div class="stat"><p class="stat-label">Coordinator</p><p class="stat-value">ROSS PERRY</p></div>
-            <div class="stat"><p class="stat-label">Command Pulse</p><p class="stat-value">ACTIVE // 2026.02.17</p></div>
-            <div class="stat"><p class="stat-label">Local Time</p><p id="clock" class="stat-value">00:00:00 EST</p></div>
-        </div>
+        <div class="logo">VECTOR COMMAND // NEXUS</div>
+        <div id="clock">00:00:00 EST</div>
     </header>
-
-    <div class="protocol-section">
-        <div class="protocol-tag"><span></span> Active Coordination Protocol</div>
-        <p class="protocol-content">
-            "Hi, I'm <b>Ross Perry</b>. I need to speak with <b>[NAME]</b> regarding the <b>HPE Gen12 refresh cycle</b>. I'm coordinating a sync to ensure your operations are prioritized for the Q3 modernization window before the market shifts in price."
-        </p>
-    </div>
-
     <div class="grid">
-        <!-- COMPANY 01 -->
-        <div class="lead-card">
-            <div class="card-top">
-                <span class="industry-tag">Regional Infrastructure</span>
-                <h2 class="company-heading">Sea Lion Holdings, Ltd.</h2>
-                <p class="dm-name">David Cottrell</p>
-            </div>
-            <div class="story-block">
-                Sea Lion Holdings is a cornerstone of the Hooper Bay community, operating as a Native Village Corporation dedicated to the economic viability of the Yup’ik people. They manage essential multi-sector investments and regional infrastructure that provide critical services to over 600 shareholders. Their operations are the backbone of local utility management and community logistics in Southwest Alaska.
-            </div>
-            <div class="data-strip">
-                <div class="data-point"><p class="dp-label">Location</p><p class="dp-value">Hooper Bay, AK</p></div>
-                <div class="data-point"><p class="dp-label">Reach</p><p class="dp-value">Regional Leader</p></div>
-            </div>
-            <div class="strategic-intel">
-                <p class="intel-title">Tactical Intelligence</p>
-                <p class="intel-text">David Cottrell bridges the gap between board-level investment and daily operations. The focus here is community resilience—securing the long-term reliability of the community's digital backbone while avoiding the Q3 cost spikes that could drain their local investment pool.</p>
-            </div>
-            <a href="tel:19077584708" class="call-btn">Initialize Sync</a>
-        </div>
 
-        <!-- COMPANY 02 -->
-        <div class="lead-card">
-            <div class="card-top">
-                <span class="industry-tag">Banking & Community Finance</span>
-                <h2 class="company-heading">Industrial Bank (IBW)</h2>
-                <p class="dm-name">Stephen G. Thormann</p>
-            </div>
-            <div class="story-block">
-                Industrial Bank is one of the largest African American-owned and operated commercial banks in the United States. Based in Washington, DC, they have been a pillar of community reinvestment since 1934. They provide essential financial products to small businesses and homeowners across the District of Columbia and Maryland, serving as a vital engine for local economic growth and wealth building.
-            </div>
-            <div class="data-strip">
-                <div class="data-point"><p class="dp-label">Location</p><p class="dp-value">Washington, DC</p></div>
-                <div class="data-point"><p class="dp-label">Market Role</p><p class="dp-value">Cornerstone Lender</p></div>
-            </div>
-            <div class="strategic-intel">
-                <p class="intel-title">Tactical Intelligence</p>
-                <p class="intel-text">Stephen Thormann (CIO) oversees the integrity of the bank's digital mission. With regulatory pressure increasing in 2026, modernizing their compute stack ensures they can continue to offer secure, high-speed banking to the communities that depend on them.</p>
-            </div>
-            <a href="tel:12027222000" class="call-btn">Initialize Sync</a>
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
         </div>
-
-        <!-- COMPANY 03 -->
-        <div class="lead-card">
-            <div class="card-top">
-                <span class="industry-tag">Media & Public Service</span>
-                <h2 class="company-heading">C-SPAN (NCSC)</h2>
-                <p class="dm-name">Roxane Kerr</p>
-            </div>
-            <div class="story-block">
-                C-SPAN is a private, nonprofit corporation created by the cable television industry to provide the American public with unfiltered access to government proceedings. Operating without government funding, they maintain a massive, world-class archive of congressional hearings and public affairs events. They are the primary source for historical transparency and real-time civic engagement in the United States.
-            </div>
-            <div class="data-strip">
-                <div class="data-point"><p class="dp-label">Location</p><p class="dp-value">Washington, DC</p></div>
-                <div class="data-point"><p class="dp-label">Primary Goal</p><p class="dp-value">Archival Integrity</p></div>
-            </div>
-            <div class="strategic-intel">
-                <p class="intel-title">Tactical Intelligence</p>
-                <p class="intel-text">Roxane Kerr (VP Engineering) is the steward of a massive digital history. The 2026 election cycle is a high-magnitude event for their archival throughput. This refresh is a strategic imperative to ensure that every second of democratic process is preserved with 100% redundancy.</p>
-            </div>
-            <a href="tel:12027373220" class="call-btn">Initialize Sync</a>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
         </div>
-
-        <!-- COMPANY 04 -->
-        <div class="lead-card">
-            <div class="card-top">
-                <span class="industry-tag">Government & Commercial Services</span>
-                <h2 class="company-heading">Tikigaq Corporation</h2>
-                <p class="dm-name">Christina Johnson</p>
-            </div>
-            <div class="story-block">
-                Tikigaq is an Alaska Native Village Corporation with a global reach. They provide a massive range of services across environmental, construction, and operational sectors for both commercial and federal government clients. They are recognized for their resilience and their role in ensuring the economic viability and self-sufficiency of their shareholders through high-stakes government contracting.
-            </div>
-            <div class="data-strip">
-                <div class="data-point"><p class="dp-label">Location</p><p class="dp-value">Anchorage, AK</p></div>
-                <div class="data-point"><p class="dp-label">Reach</p><p class="dp-value">Global Logistics</p></div>
-            </div>
-            <div class="strategic-intel">
-                <p class="intel-title">Tactical Intelligence</p>
-                <p class="intel-text">Christina Johnson handles the core operational sync. Because Tikigaq works with federal departments and the military, their uptime and security requirements are mission-critical. This refresh supports their global footprint, reducing latency for their remote teams and ensuring their government contracts remain performant.</p>
-            </div>
-            <a href="tel:19073656299" class="call-btn">Initialize Sync</a>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
         </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
+        <div class="card">
+            <div class="tz-badge">AKST (UTC-9)</div>
+            <div class="ind-tag">Enterprise</div>
+            <h2 class="company">Unknown Company</h2>
+            <div class="story">A key regional contributor focused on mission stability and community impact. Their 2026 goal is securing operational integrity against market shifts.</div>
+            <a href="tel:0" class="btn">Initialize Call</a>
+        </div>
+    
     </div>
-</div>
-
-<script>
-    function updateClock() {
-        const now = new Date();
-        const options = { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-        document.getElementById('clock').innerText = now.toLocaleTimeString('en-US', options) + ' EST';
-    }
-    setInterval(updateClock, 1000);
-    updateClock();
-</script>
-
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const options = { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+            document.getElementById('clock').innerText = now.toLocaleTimeString('en-US', options) + ' EST';
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
 </body>
 </html>
