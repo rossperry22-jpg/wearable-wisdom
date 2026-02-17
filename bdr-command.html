@@ -4,19 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VECTOR COMMAND // COORDINATION CENTER</title>
+    <title>COMMAND CENTER // HPE SERVER BDR</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Outfit:wght@200;400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #010101;
-            --surface: #08080a;
-            --surface-bright: #0c0c10;
-            --border: #141418;
+            --surface: #0a0a0c;
+            --surface-bright: #121216;
+            --border: #1c1c22;
             --accent: #d4af37; /* Vector Gold */
-            --accent-glow: rgba(212, 175, 55, 0.15);
-            --text-main: #f8f8f8;
-            --text-dim: #6b7280;
-            --status-green: #10b981;
+            --accent-glow: rgba(212, 175, 55, 0.1);
+            --text-main: #f0f0f5;
+            --text-dim: #71717a;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -25,88 +24,67 @@
             color: var(--text-main); 
             font-family: 'Outfit', sans-serif;
             -webkit-font-smoothing: antialiased;
-            background-image: radial-gradient(circle at 50% -20%, #1a1a1e 0%, #010101 80%);
+            background-image: radial-gradient(circle at 50% 0%, #15151a 0%, #010101 100%);
             min-height: 100vh;
         }
 
         .container { max-width: 1600px; margin: 0 auto; padding: 40px; }
 
-        /* Sleek Modern Header */
         header { 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            margin-bottom: 50px;
-            padding: 24px 32px;
-            background: rgba(8, 8, 10, 0.8);
+            margin-bottom: 60px;
+            padding: 30px;
+            background: var(--surface);
             border: 1px solid var(--border);
-            backdrop-filter: blur(20px);
             border-radius: 4px;
         }
 
-        .brand-group { display: flex; align-items: center; gap: 20px; }
-        .brand-mark { width: 3px; height: 35px; background: var(--accent); }
-        .brand-text { 
-            font-family: 'Space Grotesk', sans-serif; 
-            font-weight: 700; 
-            letter-spacing: 8px; 
-            font-size: 18px; 
-            text-transform: uppercase; 
-            color: #fff;
-        }
+        .logo-group { display: flex; align-items: center; gap: 20px; }
+        .logo-mark { width: 3px; height: 35px; background: var(--accent); }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: 8px; font-size: 18px; text-transform: uppercase; color: #fff; }
 
-        .header-meta { display: flex; gap: 48px; }
-        .meta-stat { text-align: right; }
-        .meta-label { font-size: 10px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 6px; }
-        .meta-value { font-size: 15px; font-weight: 600; color: var(--accent); font-family: 'Space Grotesk', sans-serif; }
+        .header-meta { display: flex; gap: 40px; }
+        .stat { text-align: right; }
+        .stat-label { font-size: 9px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 4px; }
+        .stat-value { font-size: 14px; font-weight: 700; color: var(--accent); font-family: 'Space Grotesk', sans-serif; }
 
-        /* Authorization Script Section */
-        .script-hero {
-            background: linear-gradient(135deg, #08080a 0%, #040405 100%);
+        .protocol-section {
+            background: linear-gradient(90deg, #0a0a0c 0%, #050505 100%);
             border: 1px solid var(--border);
             padding: 50px;
             margin-bottom: 50px;
             position: relative;
-            border-radius: 4px;
         }
-        .script-tag { 
-            font-size: 11px; font-weight: 900; color: var(--accent); 
-            text-transform: uppercase; letter-spacing: 5px; margin-bottom: 30px;
-            display: flex; align-items: center; gap: 15px;
-        }
-        .script-tag::before { content: ''; width: 50px; height: 1px; background: var(--accent); }
-        .script-body { font-size: 26px; font-weight: 300; line-height: 1.6; color: #e5e7eb; max-width: 1100px; }
-        .script-body b { color: #fff; font-weight: 700; border-bottom: 2px solid var(--accent); }
+        .protocol-tag { font-size: 10px; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 5px; margin-bottom: 25px; display: flex; align-items: center; gap: 15px; }
+        .protocol-tag span { width: 50px; height: 1px; background: var(--accent); }
+        .protocol-content { font-size: 24px; font-weight: 200; line-height: 1.5; color: #e4e4e7; max-width: 1100px; }
+        .protocol-content b { color: #fff; font-weight: 700; border-bottom: 2px solid var(--accent); }
 
-        /* High-End Lead Grid */
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); gap: 32px; }
 
-        .lead-card {
+        .card {
             background: var(--surface);
             border: 1px solid var(--border);
             padding: 48px;
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-            border-radius: 2px;
+            transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
             display: flex;
             flex-direction: column;
         }
-        .lead-card:hover {
-            border-color: rgba(212, 175, 55, 0.4);
+        .card:hover {
+            border-color: rgba(212, 175, 55, 0.3);
             background: var(--surface-bright);
             transform: translateY(-8px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.8);
         }
 
-        .card-top { margin-bottom: 35px; }
-        .industry-label { 
-            font-size: 10px; font-weight: 900; color: var(--accent); 
-            letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px;
-            display: block; opacity: 0.8;
-        }
-        .company-heading { font-size: 32px; font-weight: 700; color: #fff; letter-spacing: -0.5px; margin-bottom: 8px; }
-        .dm-name { font-size: 18px; color: var(--accent); font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; }
+        .industry-tag { font-size: 10px; font-weight: 900; color: var(--accent); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px; display: block; }
+        .company-name { font-size: 32px; font-weight: 700; color: #fff; letter-spacing: -0.5px; margin-bottom: 8px; }
+        .dm-name { font-size: 18px; color: var(--accent); font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 30px; }
 
-        .company-story {
+        .story-block {
             font-size: 15px; line-height: 1.8; color: #9ca3af;
             margin-bottom: 40px; padding: 0 0 0 24px; border-left: 1px solid #27272a;
             font-weight: 300;
@@ -117,25 +95,20 @@
         .dp-label { font-size: 10px; font-weight: 800; color: var(--text-dim); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
         .dp-value { font-size: 14px; font-weight: 600; color: #d1d5db; }
 
-        .strategic-intel { 
-            background: rgba(212, 175, 55, 0.04); 
-            border: 1px solid rgba(212, 175, 55, 0.1); 
-            padding: 30px; 
-            margin-bottom: 45px; 
-            flex-grow: 1;
-        }
+        .intel-block { background: rgba(212, 175, 55, 0.04); border: 1px solid rgba(212, 175, 55, 0.1); padding: 30px; margin-bottom: 45px; flex-grow: 1; }
         .intel-title { font-size: 11px; font-weight: 900; color: var(--accent); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 15px; }
-        .intel-text { font-size: 15px; line-height: 1.7; color: #d4d4d8; font-weight: 400; }
+        .intel-text { font-size: 15px; line-height: 1.7; color: #d4d4d8; }
 
-        .call-trigger {
+        .call-btn {
             display: block; width: 100%; padding: 28px; 
             background: transparent; color: var(--accent); text-align: center;
             font-size: 13px; font-weight: 900; text-transform: uppercase; letter-spacing: 6px;
-            text-decoration: none; transition: 0.4s;
-            border: 1px solid var(--accent);
-            border-radius: 2px;
+            text-decoration: none; border: 1px solid var(--accent);
+            transition: 0.4s;
         }
-        .call-trigger:hover { background: var(--accent); color: #000; transform: scale(1.02); }
+        .call-btn:hover { background: var(--accent); color: #000; transform: scale(1.02); }
+
+        #clock { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 15px; }
 
     </style>
 </head>
@@ -143,29 +116,20 @@
 
 <div class="container">
     <header>
-        <div class="brand-group">
-            <div class="brand-mark"></div>
-            <div class="brand-text">VECTOR COMMAND</div>
+        <div class="logo-group">
+            <div class="logo-mark"></div>
+            <div class="logo-text">VECTOR COMMAND</div>
         </div>
         <div class="header-meta">
-            <div class="meta-stat">
-                <p class="meta-label">Coordinator</p>
-                <p class="meta-value">ROSS PERRY</p>
-            </div>
-            <div class="meta-stat">
-                <p class="meta-label">Command Pulse</p>
-                <p class="meta-value">ACTIVE // 2026.02.17</p>
-            </div>
-            <div class="meta-stat">
-                <p class="meta-label">Target Time</p>
-                <p id="clock" class="meta-value">00:00:00 EST</p>
-            </div>
+            <div class="stat"><p class="stat-label">Coordinator</p><p class="stat-value">ROSS PERRY</p></div>
+            <div class="stat"><p class="stat-label">Command Pulse</p><p class="stat-value">ACTIVE // 2026.02.17</p></div>
+            <div class="stat"><p class="stat-label">Local Time</p><p id="clock" class="stat-value">00:00:00 EST</p></div>
         </div>
     </header>
 
-    <div class="script-hero">
-        <div class="script-tag">Human Coordination Protocol</div>
-        <p class="script-body">
+    <div class="protocol-section">
+        <div class="protocol-tag"><span></span> Active Coordination Protocol</div>
+        <p class="protocol-content">
             "Hi, I'm <b>Ross Perry</b>. I need to speak with <b>[NAME]</b> regarding the <b>HPE Gen12 refresh cycle</b>. I'm coordinating a sync to ensure your operations are prioritized for the Q3 modernization window before the market shifts in price."
         </p>
     </div>
@@ -174,32 +138,32 @@
         <!-- COMPANY 01 -->
         <div class="lead-card">
             <div class="card-top">
-                <span class="industry-label">Regional Infrastructure Leader</span>
+                <span class="industry-tag">Regional Infrastructure</span>
                 <h2 class="company-heading">Sea Lion Holdings, Ltd.</h2>
-                <p class="dm-name">Attn: David Cottrell</p>
+                <p class="dm-name">David Cottrell</p>
             </div>
-            <div class="company-story">
+            <div class="story-block">
                 Sea Lion Holdings is a cornerstone of the Hooper Bay community, operating as a Native Village Corporation dedicated to the economic viability of the Yup’ik people. They manage essential multi-sector investments and regional infrastructure that provide critical services to over 600 shareholders. Their operations are the backbone of local utility management and community logistics in Southwest Alaska.
             </div>
             <div class="data-strip">
                 <div class="data-point"><p class="dp-label">Location</p><p class="dp-value">Hooper Bay, AK</p></div>
-                <div class="data-point"><p class="dp-label">Current Scale</p><p class="dp-value">Regional Hub</p></div>
+                <div class="data-point"><p class="dp-label">Reach</p><p class="dp-value">Regional Leader</p></div>
             </div>
             <div class="strategic-intel">
-                <p class="intel-title">Vector Intelligence</p>
-                <p class="intel-text">David Cottrell bridges the gap between board-level investment and daily operations. The focus here is community resilience—the Gen12 refresh isn't just about hardware; it's about securing the long-term reliability of the community's digital backbone while avoiding the Q3 cost spikes that could drain their local investment pool.</p>
+                <p class="intel-title">Tactical Intelligence</p>
+                <p class="intel-text">David Cottrell bridges the gap between board-level investment and daily operations. The focus here is community resilience—securing the long-term reliability of the community's digital backbone while avoiding the Q3 cost spikes that could drain their local investment pool.</p>
             </div>
-            <a href="tel:19077584708" class="call-trigger">Initialize Call Sync</a>
+            <a href="tel:19077584708" class="call-btn">Initialize Sync</a>
         </div>
 
         <!-- COMPANY 02 -->
         <div class="lead-card">
             <div class="card-top">
-                <span class="industry-label">Banking & Community Finance</span>
-                <h2 class="company-heading">Ibw Financial / Industrial Bank</h2>
-                <p class="dm-name">Attn: Stephen G. Thormann</p>
+                <span class="industry-tag">Banking & Community Finance</span>
+                <h2 class="company-heading">Industrial Bank (IBW)</h2>
+                <p class="dm-name">Stephen G. Thormann</p>
             </div>
-            <div class="company-story">
+            <div class="story-block">
                 Industrial Bank is one of the largest African American-owned and operated commercial banks in the United States. Based in Washington, DC, they have been a pillar of community reinvestment since 1934. They provide essential financial products to small businesses and homeowners across the District of Columbia and Maryland, serving as a vital engine for local economic growth and wealth building.
             </div>
             <div class="data-strip">
@@ -207,20 +171,20 @@
                 <div class="data-point"><p class="dp-label">Market Role</p><p class="dp-value">Cornerstone Lender</p></div>
             </div>
             <div class="strategic-intel">
-                <p class="intel-title">Vector Intelligence</p>
-                <p class="intel-text">Stephen Thormann (CIO) oversees the integrity of the bank's digital mission. With regulatory pressure increasing in 2026, the shift to Gen12 modernization is a move to protect their shareholders and depositors. Modernizing their compute stack ensures they can continue to offer secure, high-speed banking to the communities that depend on them.</p>
+                <p class="intel-title">Tactical Intelligence</p>
+                <p class="intel-text">Stephen Thormann (CIO) oversees the integrity of the bank's digital mission. With regulatory pressure increasing in 2026, modernizing their compute stack ensures they can continue to offer secure, high-speed banking to the communities that depend on them.</p>
             </div>
-            <a href="tel:12027222000" class="call-trigger">Initialize Call Sync</a>
+            <a href="tel:12027222000" class="call-btn">Initialize Sync</a>
         </div>
 
         <!-- COMPANY 03 -->
         <div class="lead-card">
             <div class="card-top">
-                <span class="industry-label">Media & Public Service</span>
+                <span class="industry-tag">Media & Public Service</span>
                 <h2 class="company-heading">C-SPAN (NCSC)</h2>
-                <p class="dm-name">Attn: Roxane Kerr</p>
+                <p class="dm-name">Roxane Kerr</p>
             </div>
-            <div class="company-story">
+            <div class="story-block">
                 C-SPAN is a private, nonprofit corporation created by the cable television industry to provide the American public with unfiltered access to government proceedings. Operating without government funding, they maintain a massive, world-class archive of congressional hearings and public affairs events. They are the primary source for historical transparency and real-time civic engagement in the United States.
             </div>
             <div class="data-strip">
@@ -228,31 +192,31 @@
                 <div class="data-point"><p class="dp-label">Primary Goal</p><p class="dp-value">Archival Integrity</p></div>
             </div>
             <div class="strategic-intel">
-                <p class="intel-title">Vector Intelligence</p>
-                <p class="intel-text">Roxane Kerr (VP Engineering) is the steward of a massive digital history. The 2026 election cycle is a high-magnitude event for their archival throughput. The Gen12 refresh is a strategic imperative to ensure that every second of democratic process is captured and preserved with 100% redundancy, ensuring the public's access never flickers.</p>
+                <p class="intel-title">Tactical Intelligence</p>
+                <p class="intel-text">Roxane Kerr (VP Engineering) is the steward of a massive digital history. The 2026 election cycle is a high-magnitude event for their archival throughput. This refresh is a strategic imperative to ensure that every second of democratic process is preserved with 100% redundancy.</p>
             </div>
-            <a href="tel:12027373220" class="call-trigger">Initialize Call Sync</a>
+            <a href="tel:12027373220" class="call-btn">Initialize Sync</a>
         </div>
 
         <!-- COMPANY 04 -->
         <div class="lead-card">
             <div class="card-top">
-                <span class="industry-label">Government Logistics & Services</span>
+                <span class="industry-tag">Government & Commercial Services</span>
                 <h2 class="company-heading">Tikigaq Corporation</h2>
-                <p class="dm-name">Attn: Christina Johnson</p>
+                <p class="dm-name">Christina Johnson</p>
             </div>
-            <div class="company-story">
-                Tikigaq is an Alaska Native Village Corporation from Point Hope with a global reach. They provide a massive range of services across environmental, construction, and operational sectors for both commercial and federal government clients. They are recognized for their resilience and their role in ensuring the economic viability and self-sufficiency of their shareholders through high-stakes government contracting.
+            <div class="story-block">
+                Tikigaq is an Alaska Native Village Corporation with a global reach. They provide a massive range of services across environmental, construction, and operational sectors for both commercial and federal government clients. They are recognized for their resilience and their role in ensuring the economic viability and self-sufficiency of their shareholders through high-stakes government contracting.
             </div>
             <div class="data-strip">
                 <div class="data-point"><p class="dp-label">Location</p><p class="dp-value">Anchorage, AK</p></div>
-                <div class="data-point"><p class="dp-label">Reach</p><p class="dp-value">Global Ops</p></div>
+                <div class="data-point"><p class="dp-label">Reach</p><p class="dp-value">Global Logistics</p></div>
             </div>
             <div class="strategic-intel">
-                <p class="intel-title">Vector Intelligence</p>
-                <p class="intel-text">Christina Johnson handles the core operational sync. Because Tikigaq works with federal departments and the military, their uptime and security requirements are mission-critical. The Gen12 refresh supports their global footprint, reducing latency for their remote teams and ensuring their government contracts remain stable and performant.</p>
+                <p class="intel-title">Tactical Intelligence</p>
+                <p class="intel-text">Christina Johnson handles the core operational sync. Because Tikigaq works with federal departments and the military, their uptime and security requirements are mission-critical. This refresh supports their global footprint, reducing latency for their remote teams and ensuring their government contracts remain performant.</p>
             </div>
-            <a href="tel:19073656299" class="call-trigger">Initialize Call Sync</a>
+            <a href="tel:19073656299" class="call-btn">Initialize Sync</a>
         </div>
     </div>
 </div>
